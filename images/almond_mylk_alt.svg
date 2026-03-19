@@ -1,0 +1,55 @@
+<svg width="768" height="768" viewBox="0 0 768 768" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="768" height="768" rx="48" fill="url(#bg)"/>
+  <circle cx="604" cy="138" r="92" fill="#F7DFA7" fill-opacity="0.55"/>
+  <circle cx="132" cy="622" r="118" fill="#D7E7B5" fill-opacity="0.65"/>
+  <path d="M84 560C84 520.235 116.235 488 156 488H612C651.765 488 684 520.235 684 560V684H84V560Z" fill="#EFE3CA" fill-opacity="0.9"/>
+  <ellipse cx="386" cy="570" rx="190" ry="40" fill="#C9B48A" fill-opacity="0.35"/>
+  <rect x="285" y="152" width="198" height="360" rx="70" fill="url(#glass)" stroke="#F8F6F0" stroke-width="8"/>
+  <rect x="316" y="118" width="136" height="82" rx="32" fill="url(#neck)" stroke="#F8F6F0" stroke-width="8"/>
+  <rect x="334" y="92" width="100" height="36" rx="18" fill="#EFE9DC"/>
+  <path d="M309 268C309 243.699 328.699 224 353 224H415C439.301 224 459 243.699 459 268V462C459 486.301 439.301 506 415 506H353C328.699 506 309 486.301 309 462V268Z" fill="url(#mylk)"/>
+  <rect x="326" y="316" width="116" height="82" rx="24" fill="#2E5C42"/>
+  <rect x="340" y="332" width="88" height="50" rx="16" fill="#F0E3C2"/>
+  <path d="M363 250C363 231.775 377.775 217 396 217C414.225 217 429 231.775 429 250V281H363V250Z" fill="#FFF8EA" fill-opacity="0.85"/>
+  <path d="M202 554C202 523.072 227.072 498 258 498C288.928 498 314 523.072 314 554V572H202V554Z" fill="#E8C998"/>
+  <path d="M464 554C464 523.072 489.072 498 520 498C550.928 498 576 523.072 576 554V572H464V554Z" fill="#E8C998"/>
+  <path d="M162 592C162 560.52 187.52 535 219 535C250.48 535 276 560.52 276 592V604H162V592Z" fill="#A86B38"/>
+  <path d="M532 592C532 560.52 557.52 535 589 535C620.48 535 646 560.52 646 592V604H532V592Z" fill="#A86B38"/>
+  <ellipse cx="220" cy="598" rx="57" ry="20" fill="#D8B279"/>
+  <ellipse cx="588" cy="598" rx="57" ry="20" fill="#D8B279"/>
+  <g opacity="0.92">
+    <path d="M174 604C174 576.938 195.938 555 223 555C250.062 555 272 576.938 272 604V616H174V604Z" fill="#8D5A2E"/>
+    <path d="M546 604C546 576.938 567.938 555 595 555C622.062 555 644 576.938 644 604V616H546V604Z" fill="#8D5A2E"/>
+  </g>
+  <g fill="#B47A44">
+    <path d="M138 622C138 598.804 156.804 580 180 580C203.196 580 222 598.804 222 622C222 645.196 203.196 664 180 664C156.804 664 138 645.196 138 622Z"/>
+    <path d="M564 632C564 608.804 582.804 590 606 590C629.196 590 648 608.804 648 632C648 655.196 629.196 674 606 674C582.804 674 564 655.196 564 632Z"/>
+    <path d="M468 620C468 598.461 485.461 581 507 581C528.539 581 546 598.461 546 620C546 641.539 528.539 659 507 659C485.461 659 468 641.539 468 620Z"/>
+  </g>
+  <g fill="#E6C28F">
+    <path d="M150 622C150 605.431 163.431 592 180 592C196.569 592 210 605.431 210 622C210 638.569 196.569 652 180 652C163.431 652 150 638.569 150 622Z"/>
+    <path d="M576 632C576 615.431 589.431 602 606 602C622.569 602 636 615.431 636 632C636 648.569 622.569 662 606 662C589.431 662 576 648.569 576 632Z"/>
+    <path d="M480 620C480 605.641 491.641 594 506 594C520.359 594 532 605.641 532 620C532 634.359 520.359 646 506 646C491.641 646 480 634.359 480 620Z"/>
+  </g>
+  <path d="M347 388H421" stroke="#2E5C42" stroke-width="8" stroke-linecap="round"/>
+  <path d="M362 353H406" stroke="#C88E4A" stroke-width="10" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="bg" x1="112" y1="88" x2="684" y2="692" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCF9F2"/>
+      <stop offset="0.5" stop-color="#EEF3E2"/>
+      <stop offset="1" stop-color="#F6E4C1"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="318" y1="152" x2="450" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.88"/>
+      <stop offset="1" stop-color="#F6F1E7" stop-opacity="0.62"/>
+    </linearGradient>
+    <linearGradient id="neck" x1="332" y1="118" x2="432" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#F0ECE5" stop-opacity="0.72"/>
+    </linearGradient>
+    <linearGradient id="mylk" x1="340" y1="224" x2="432" y2="506" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF6E8"/>
+      <stop offset="1" stop-color="#EADABB"/>
+    </linearGradient>
+  </defs>
+</svg>
