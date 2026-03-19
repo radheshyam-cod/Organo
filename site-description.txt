@@ -1,0 +1,49 @@
+Organo Web Platform – Detailed Description
+
+Overview
+- Farm-to-bottle juice commerce site with AI-driven recommendations, subscriptions, and Indian-market optimizations (INR pricing, GST, Razorpay, pincode delivery).
+- Stack: Vite + React + TypeScript (frontend), Node.js + Express + Prisma + PostgreSQL (backend).
+
+Frontend (src)
+- React with feature-based structure: auth, products, cart, orders, subscriptions, ai; shared components and layouts.
+- Global providers: Auth, Wishlist, Subscription, Cart wrap the app to supply JWT auth, persisted wishlist, subscription state, and cart operations.
+- UI: Tailwind-style utility classes, framer-motion animations, responsive header with search, account, cart drawer, delivery checker, AI menu.
+- Currency helper: formatCurrency (Intl en-IN INR) used across product cards, cart, checkout, orders, AI outputs.
+- Product displays: cards, carousel, product detail page with benefits/ingredients and wishlist toggle; image helper maps names to /images/<slug>.png with fallbacks.
+- Cart & Checkout: server-backed cart, stock validation, GST and delivery fee breakdown, bundle/subscription discounts, Razorpay client checkout, order summary and invoice info.
+- AI features: AI Advisor page (goal/time/preferences), Demand report, Nearby services map (Google Places with India bias), Pincode delivery checker with waitlist UX.
+- Delivery UX: pincode-based status (local/national/out-of-service), ETA messaging (“10–30 mins”, “Same-day delivery”), freshness badges.
+- Performance: lazy loading heavy sections, memoized components, error/loading states on all data hooks.
+
+Backend (api/src)
+- Express server with CORS+JSON, routes under /api: auth, products, cart, orders, subscriptions, delivery, AI advisor, AI demand report, nearby services, payments, health.
+- Auth: JWT signup/login/me, bcrypt hashing, role-based middleware (user/admin).
+- Products: Prisma Product model (name, description, price, image, category, stock, tags, benefits) with filters for category/tags/benefits.
+- Cart: Stored in DB per user; add/remove/update with stock checks.
+- Orders: Create from cart, compute subtotal, bundle/subscription discounts, GST, delivery fee, invoice number, store order items, clear cart; statuses pending/shipped/delivered; payment status field.
+- Payments: Razorpay order creation and signature verification; Payment table links to Order.
+- Subscriptions: 6-slot crate, create/pause/resume/cancel, next-delivery scheduler, items JSON.
+- Delivery: PincodeService model for local/national serviceability and ETA logic.
+- AI: Advisor service (goal/time/preferences) storing recommendations; demand report aggregates orders/subscriptions/popularity; Nearby services via Google Places with distance/rating filters.
+
+Database (prisma/schema.prisma)
+- Models: User, Product, Cart, CartItem, Order, OrderItem, Subscription, AIRecommendation, Payment, PincodeService.
+- Enums: Role, OrderStatus, PaymentStatus, SubscriptionStatus, SubscriptionFrequency, AIAdvisorGoal, DeliveryType.
+- Indexes for performance on lookups (category, price, tags, benefits, user relations).
+
+Environment & Config
+- `.env` variables: PORT, DATABASE_URL, JWT_SECRET, CORS_ORIGIN, GOOGLE_PLACES_API_KEY, RAZORPAY_KEY_ID/SECRET, GST_RATE, DELIVERY_FEE, SUBSCRIPTION_DISCOUNT, BUNDLE_DISCOUNT, VITE_API_BASE.
+- Health check: GET /api/health.
+
+Payments & Pricing
+- All amounts in INR; stored as decimals in PostgreSQL, displayed with en-IN currency format.
+- GST calculation and invoice fields (invoiceNumber, businessName, gstin) on orders.
+- Bundle and subscription discounts with caps; delivery fee configurable.
+
+Deployment/Run (local quick path)
+- Ensure Postgres reachable; run `npm run prisma:migrate`.
+- Start API: `npm run dev:api` (port 4000 by default).
+- Start frontend: `npm run dev` (Vite on 5173) with VITE_API_BASE pointing to the API.
+
+Notable UX touches
+- AI-forward navigation, animated header, freshness badges, India-first delivery wording, nearby gyms/yoga/clinics maps, waitlist for unsupported pincodes.

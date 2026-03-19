@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-organo-cream text-organo-gray font-sans antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif text-organo-green;
+  }
+  h1, .text-5xl, .text-6xl, .text-7xl {
+    @apply tracking-tighter;
+  }
+  h2, h3, h4, .text-4xl, .text-3xl {
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  /* Cinematic Glow & Lift Button */
+  .btn-premium {
+    @apply relative overflow-hidden transition-all duration-500 ease-out shadow-lg hover:shadow-[0_0_30px_rgba(184,217,79,0.4)] hover:-translate-y-1 hover:scale-[1.02];
+  }
+  .btn-premium::after {
+    @apply content-[''] absolute inset-0 bg-white/20 translate-y-[100%] transition-transform duration-500 ease-out z-0;
+  }
+  .btn-premium:hover::after {
+    @apply translate-y-0;
+  }
+  .btn-premium > * {
+    @apply relative z-10;
+  }
+}
