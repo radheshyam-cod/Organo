@@ -83,67 +83,65 @@ const AnimatedRoutes = () => {
           fallback={<div className="py-24 text-center text-organo-gray">Loading experience...</div>}
         >
           <Routes location={location}>
-
-
-                    <Route
-                      path="/"
-                      element={
-                        <>
-                          <Hero />
-                          <Suspense fallback={sectionFallback}>
-                            <ZoneGate />
-                          </Suspense>
-                          <Suspense fallback={sectionFallback}>
-                            <ProductCarousel />
-                          </Suspense>
-                          <Suspense fallback={sectionFallback}>
-                            <SmartRecommender />
-                          </Suspense>
-                          <Suspense fallback={sectionFallback}>
-                            <ScrollyTelling />
-                          </Suspense>
-                          <Suspense fallback={sectionFallback}>
-                            <SubscriptionBuilder />
-                          </Suspense>
-                          <Suspense fallback={sectionFallback}>
-                            <ImpactDashboard />
-                          </Suspense>
-                        </>
-                      }
-                    />
-                    <Route path="/wellness-center" element={<WellnessOperationsCenter />} />
-                    <Route path="/shop" element={<Shop />} />
-                    <Route path="/subscription" element={<Subscription />} />
-                    <Route path="/wholesale" element={<Wholesale />} />
-                    <Route path="/visit" element={<Visit />} />
-                    <Route path="/practices" element={<Practices />} />
-                    <Route path="/wishlist" element={<Wishlist />} />
-                    <Route path="/the-farm" element={<TheFarm />} />
-                    <Route
-                      path="/account"
-                      element={
-                        <OrderProvider>
-                          <Account />
-                        </OrderProvider>
-                      }
-                    />
-                    <Route
-                      path="/checkout"
-                      element={
-                        <OrderProvider>
-                          <Checkout />
-                        </OrderProvider>
-                      }
-                    />
-                    <Route path="/check-availability" element={<CheckAvailability />} />
-                    <Route path="/product/:id" element={<ProductDetails />} />
-                    <Route path="/ai-advisor" element={<AIAdvisor />} />
-                    <Route path="/ai-demand" element={<AIDemand />} />
-                    <Route path="/nutrition-assistant" element={<NutritionAssistant />} />
-                    <Route path="/demand-forecasting" element={<DemandForecasting />} />
-                    <Route path="/recommender" element={<RealTimeRecommender />} />
-                    <Route path="/search" element={<SearchPage />} />
-                    <Route path="/journal" element={<Journal />} />
+            <Route
+              path="/"
+              element={
+                <>
+                  <Hero />
+                  <Suspense fallback={sectionFallback}>
+                    <ZoneGate />
+                  </Suspense>
+                  <Suspense fallback={sectionFallback}>
+                    <ProductCarousel />
+                  </Suspense>
+                  <Suspense fallback={sectionFallback}>
+                    <SmartRecommender />
+                  </Suspense>
+                  <Suspense fallback={sectionFallback}>
+                    <ScrollyTelling />
+                  </Suspense>
+                  <Suspense fallback={sectionFallback}>
+                    <SubscriptionBuilder />
+                  </Suspense>
+                  <Suspense fallback={sectionFallback}>
+                    <ImpactDashboard />
+                  </Suspense>
+                </>
+              }
+            />
+            <Route path="/wellness-center" element={<WellnessOperationsCenter />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/subscription" element={<Subscription />} />
+            <Route path="/wholesale" element={<Wholesale />} />
+            <Route path="/visit" element={<Visit />} />
+            <Route path="/practices" element={<Practices />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/the-farm" element={<TheFarm />} />
+            <Route
+              path="/account"
+              element={
+                <OrderProvider>
+                  <Account />
+                </OrderProvider>
+              }
+            />
+            <Route
+              path="/checkout"
+              element={
+                <OrderProvider>
+                  <Checkout />
+                </OrderProvider>
+              }
+            />
+            <Route path="/check-availability" element={<CheckAvailability />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/ai-advisor" element={<AIAdvisor />} />
+            <Route path="/ai-demand" element={<AIDemand />} />
+            <Route path="/nutrition-assistant" element={<NutritionAssistant />} />
+            <Route path="/demand-forecasting" element={<DemandForecasting />} />
+            <Route path="/recommender" element={<RealTimeRecommender />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/journal" element={<Journal />} />
           </Routes>
         </Suspense>
       </motion.main>

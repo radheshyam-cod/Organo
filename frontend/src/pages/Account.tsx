@@ -30,8 +30,14 @@ export const Account = () => {
   const [savedPlan, setSavedPlan] = useState<any>(null);
 
   const { orders } = useOrder();
-  const { subscriptions, pauseSubscription, resumeSubscription, cancelSubscription, skipSubscription, swapSubscription } =
-    useSubscription();
+  const {
+    subscriptions,
+    pauseSubscription,
+    resumeSubscription,
+    cancelSubscription,
+    skipSubscription,
+    swapSubscription,
+  } = useSubscription();
   const { user, login, signup, logout, isAuthenticated } = useAuth();
 
   useEffect(() => {

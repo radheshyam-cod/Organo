@@ -15,14 +15,14 @@ export interface Product {
 
 export const productService = {
   async list(): Promise<Product[]> {
-    return [...PRODUCTS.juices, ...PRODUCTS.vegetables, ...PRODUCTS.fruits].map(p => ({
+    return [...PRODUCTS.juices, ...PRODUCTS.vegetables, ...PRODUCTS.fruits].map((p) => ({
       ...p,
-      id: p.id.toString()
+      id: p.id.toString(),
     }));
   },
   async get(id: string): Promise<Product> {
     const allProducts = [...PRODUCTS.juices, ...PRODUCTS.vegetables, ...PRODUCTS.fruits];
-    const found = allProducts.find(p => p.id.toString() === id);
+    const found = allProducts.find((p) => p.id.toString() === id);
     if (!found) throw new Error("Product not found");
     return { ...found, id: found.id.toString() };
   },

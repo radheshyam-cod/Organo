@@ -1,5 +1,3 @@
-
-
 export function ProductSkeleton() {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm animate-pulse">

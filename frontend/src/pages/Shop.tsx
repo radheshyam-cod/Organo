@@ -91,23 +91,23 @@ export const Shop = () => {
           ) : error ? (
             <p className="text-red-500">{error}</p>
           ) : (
-          <motion.div
-            key={activeCategory}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 },
-            }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} onAdd={addToCart} />
-            ))}
-          </motion.div>
+            <motion.div
+              key={activeCategory}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 },
+              }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            >
+              {filteredProducts.map((product) => (
+                <ProductCard key={product.id} product={product} onAdd={addToCart} />
+              ))}
+            </motion.div>
           )}
         </AnimatePresence>
       </div>

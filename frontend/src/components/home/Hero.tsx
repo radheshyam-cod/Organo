@@ -13,7 +13,7 @@ export const Hero = () => {
       </div>
 
       {/* Right Side - The Juice */}
-      <div 
+      <div
         className="relative w-full md:w-1/2 h-1/2 md:h-full bg-cover bg-center"
         style={{ backgroundImage: `url(${getImageUrl("/images/organo_delivery.png")})` }}
       >

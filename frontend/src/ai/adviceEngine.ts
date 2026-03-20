@@ -18,15 +18,17 @@ export interface DailyAdvicePack {
 }
 
 // Goal-specific advice
-const GOAL_ADVICE: Partial<Record<
-  Goal,
-  {
-    nutrition: string[];
-    lifestyle: string[];
-    hydration: string[];
-    exercise: string[];
-  }
->> = {
+const GOAL_ADVICE: Partial<
+  Record<
+    Goal,
+    {
+      nutrition: string[];
+      lifestyle: string[];
+      hydration: string[];
+      exercise: string[];
+    }
+  >
+> = {
   "fat-loss": {
     nutrition: [
       "Drink juices 30 minutes before meals to help you feel fuller and eat less",
@@ -349,7 +351,11 @@ export function getHealthAdvicePack(
     ],
   };
 
-  const motivations = motivationalMessages[goal] || ["Keep going!", "You got this!", "Stay strong!"];
+  const motivations = motivationalMessages[goal] || [
+    "Keep going!",
+    "You got this!",
+    "Stay strong!",
+  ];
   const motivationalMessage = workedOut
     ? motivations[1]
     : timeOfDay === "morning"

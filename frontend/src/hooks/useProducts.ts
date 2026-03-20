@@ -35,10 +35,9 @@ export function useProducts() {
         }));
         setProducts(mapped);
       } catch (err: any) {
-        const message =
-          err?.message?.includes("Network")
-            ? "Cannot reach API. Make sure the backend is running on VITE_API_BASE."
-            : err?.response?.data?.message ?? "Failed to load products";
+        const message = err?.message?.includes("Network")
+          ? "Cannot reach API. Make sure the backend is running on VITE_API_BASE."
+          : (err?.response?.data?.message ?? "Failed to load products");
         setError(message);
       } finally {
         setLoading(false);

@@ -54,7 +54,8 @@ export function HealthCheckIn() {
     }
   };
 
-  const hasCheckedInToday = history.length > 0 && 
+  const hasCheckedInToday =
+    history.length > 0 &&
     new Date(history[0].createdAt).toDateString() === new Date().toDateString();
 
   return (
@@ -151,7 +152,7 @@ export function HealthCheckIn() {
               >
                 {submitting ? "Saving..." : "Save Check-In"}
               </button>
-              
+
               {success && (
                 <p className="text-center text-organo-green font-bold text-sm mt-2">
                   Check-in saved successfully!
@@ -173,12 +174,22 @@ export function HealthCheckIn() {
               {history.slice(0, 5).map((h) => (
                 <div key={h.id} className="text-sm">
                   <div className="font-bold text-organo-gray mb-1">
-                    {new Date(h.createdAt).toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric'})}
+                    {new Date(h.createdAt).toLocaleDateString(undefined, {
+                      weekday: "short",
+                      month: "short",
+                      day: "numeric",
+                    })}
                   </div>
                   <div className="flex gap-2 text-xs text-organo-gray font-medium">
-                    <span className="flex items-center gap-1 bg-white px-2 py-1 rounded border"><Moon size={10} /> {h.sleep}</span>
-                    <span className="flex items-center gap-1 bg-white px-2 py-1 rounded border"><Activity size={10} /> {h.digestion}</span>
-                    <span className="flex items-center gap-1 bg-white px-2 py-1 rounded border"><Battery size={10} /> {h.energy}</span>
+                    <span className="flex items-center gap-1 bg-white px-2 py-1 rounded border">
+                      <Moon size={10} /> {h.sleep}
+                    </span>
+                    <span className="flex items-center gap-1 bg-white px-2 py-1 rounded border">
+                      <Activity size={10} /> {h.digestion}
+                    </span>
+                    <span className="flex items-center gap-1 bg-white px-2 py-1 rounded border">
+                      <Battery size={10} /> {h.energy}
+                    </span>
                   </div>
                 </div>
               ))}

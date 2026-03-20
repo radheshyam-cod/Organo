@@ -113,18 +113,18 @@ export const ProductDetails = () => {
               {/* Wishlist placeholder */}
               <button
                 onClick={() => {
-                      if (!product) return;
-                      if (isInWishlist(product.id)) {
-                        removeFromWishlist(product.id);
-                      } else {
-                        addToWishlist({
-                          id: product.id,
-                          name: product.name,
-                          image: getProductImage(product),
-                          price: product.price,
-                        });
-                      }
-                    }}
+                  if (!product) return;
+                  if (isInWishlist(product.id)) {
+                    removeFromWishlist(product.id);
+                  } else {
+                    addToWishlist({
+                      id: product.id,
+                      name: product.name,
+                      image: getProductImage(product),
+                      price: product.price,
+                    });
+                  }
+                }}
                 className={`w-14 h-14 rounded-full border flex items-center justify-center transition-colors ${
                   product && isInWishlist(product.id)
                     ? "bg-red-50 border-red-200 text-red-500"
@@ -181,25 +181,37 @@ export const ProductDetails = () => {
                   <MapPin size={24} className="text-organo-pistachio" />
                   Farm to Fridge Traceability
                 </h3>
-                
+
                 <div className="space-y-4 relative z-10">
                   {product.origin && (
                     <div className="flex border-b border-gray-100 pb-4">
-                      <div className="w-1/3 text-organo-gray text-xs uppercase tracking-wider font-bold">Origin</div>
+                      <div className="w-1/3 text-organo-gray text-xs uppercase tracking-wider font-bold">
+                        Origin
+                      </div>
                       <div className="w-2/3 text-organo-green font-medium">{product.origin}</div>
                     </div>
                   )}
                   {product.farmerName && (
                     <div className="flex border-b border-gray-100 pb-4">
-                      <div className="w-1/3 text-organo-gray text-xs uppercase tracking-wider font-bold">Grown By</div>
-                      <div className="w-2/3 text-organo-green font-medium">{product.farmerName}</div>
+                      <div className="w-1/3 text-organo-gray text-xs uppercase tracking-wider font-bold">
+                        Grown By
+                      </div>
+                      <div className="w-2/3 text-organo-green font-medium">
+                        {product.farmerName}
+                      </div>
                     </div>
                   )}
                   {product.harvestDate && (
                     <div className="flex pb-2">
-                      <div className="w-1/3 text-organo-gray text-xs uppercase tracking-wider font-bold">Harvested On</div>
+                      <div className="w-1/3 text-organo-gray text-xs uppercase tracking-wider font-bold">
+                        Harvested On
+                      </div>
                       <div className="w-2/3 text-organo-green font-medium">
-                        {new Date(product.harvestDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                        {new Date(product.harvestDate).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
                       </div>
                     </div>
                   )}

@@ -19,11 +19,11 @@ const toImageSlug = (name: string) =>
     .replace(/^_+|_+$/g, "");
 
 export const getImageUrl = (path: string | undefined | null) => {
-  if (!path) return '';
-  if (path.startsWith('http') || path.startsWith('data:')) return path;
-  const base = import.meta.env.BASE_URL || '/';
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  const finalBase = base.endsWith('/') ? base : base + '/';
+  if (!path) return "";
+  if (path.startsWith("http") || path.startsWith("data:")) return path;
+  const base = import.meta.env.BASE_URL || "/";
+  const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+  const finalBase = base.endsWith("/") ? base : base + "/";
   return `${finalBase}${cleanPath}`;
 };
 

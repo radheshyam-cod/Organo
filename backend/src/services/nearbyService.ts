@@ -85,12 +85,13 @@ export async function findNearby(
 
   type PlaceResult = { name: string; distance: number; rating: number | null; address: string };
 
-  const results: PlaceResult[] = (payload.results as any[] | undefined ?? [])
+  const results: PlaceResult[] = ((payload.results as any[] | undefined) ?? [])
     .map((p) => ({
       name: p.name as string,
       distance: haversine(lat, lng, p.geometry.location.lat, p.geometry.location.lng), // meters
       rating: (p.rating as number | undefined) ?? null,
-      address: (p.vicinity as string | undefined) ?? (p.formatted_address as string | undefined) ?? "",
+      address:
+        (p.vicinity as string | undefined) ?? (p.formatted_address as string | undefined) ?? "",
     }))
     .filter((p) => (p.rating ?? 0) >= minRating);
 

@@ -23,11 +23,11 @@ export const wellnessService = {
     });
     return response.data;
   },
-  
+
   getHistory: async (token: string): Promise<HealthHistory[]> => {
     const response = await api.get("/api/wellness/history", {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
-  }
+  },
 };

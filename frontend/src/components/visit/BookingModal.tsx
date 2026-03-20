@@ -71,7 +71,10 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div>
-                        <label htmlFor="fullName" className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1">
+                        <label
+                          htmlFor="fullName"
+                          className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1"
+                        >
                           Full Name
                         </label>
                         <input
@@ -86,7 +89,10 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                       </div>
 
                       <div>
-                        <label htmlFor="email" className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1">
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1"
+                        >
                           Email
                         </label>
                         <input
@@ -102,7 +108,10 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
 
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label htmlFor="bookingDate" className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1">
+                          <label
+                            htmlFor="bookingDate"
+                            className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1"
+                          >
                             Date
                           </label>
                           <div className="relative">
@@ -118,7 +127,10 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                           </div>
                         </div>
                         <div>
-                          <label htmlFor="guests" className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1">
+                          <label
+                            htmlFor="guests"
+                            className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1"
+                          >
                             Guests
                           </label>
                           <div className="relative">

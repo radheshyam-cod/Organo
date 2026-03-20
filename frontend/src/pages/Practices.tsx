@@ -14,7 +14,10 @@ export const Practices = () => {
   return (
     <div className="bg-organo-cream min-h-screen">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+      <section
+        ref={heroRef}
+        className="relative h-[60vh] flex items-center justify-center overflow-hidden"
+      >
         <motion.div style={{ y }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
           <img
             src={getImageUrl("/images/regenerative_farming.png")}

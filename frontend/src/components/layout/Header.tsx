@@ -839,7 +839,7 @@ export const Header = () => {
                       isElevated
                         ? "border-organo-green/10 bg-white text-organo-green shadow-[0_8px_20px_rgba(28,67,52,0.12)] hover:-translate-y-0.5 hover:bg-organo-green hover:text-white"
                         : "border-white/20 bg-white/10 text-white backdrop-blur-xl hover:-translate-y-0.5 hover:bg-white/18"
-                  )}
+                    )}
                   >
                     <Search size={16} />
                   </button>

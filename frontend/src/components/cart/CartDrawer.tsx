@@ -8,7 +8,8 @@ import { formatCurrency, cn, getImageUrl } from "../../lib/utils";
 const FREE_SHIPPING_THRESHOLD = 1500;
 
 const CartDrawerComponent = () => {
-  const { items, isOpen, toggleCart, removeFromCart, updateQuantity, cartTotal, addToCart } = useCart();
+  const { items, isOpen, toggleCart, removeFromCart, updateQuantity, cartTotal, addToCart } =
+    useCart();
   const navigate = useNavigate();
 
   const handleCheckout = useCallback(() => {
@@ -18,7 +19,7 @@ const CartDrawerComponent = () => {
 
   const progress = Math.min(100, (cartTotal / FREE_SHIPPING_THRESHOLD) * 100);
   const amountNeeded = FREE_SHIPPING_THRESHOLD - cartTotal;
-  const isGingerShotInCart = items.some(item => item.id === "20" || item.name === "Ginger Shot");
+  const isGingerShotInCart = items.some((item) => item.id === "20" || item.name === "Ginger Shot");
 
   return (
     <AnimatePresence>
@@ -148,12 +149,20 @@ const CartDrawerComponent = () => {
             {items.length > 0 && !isGingerShotInCart && (
               <div className="p-4 mx-6 mb-4 bg-[rgba(249,249,245,1)] border border-organo-pistachio/40 rounded-xl flex items-center gap-4 shadow-sm">
                 <div className="w-16 h-16 bg-white rounded-lg overflow-hidden flex-shrink-0 border border-black/5">
-                  <img src={getImageUrl("/images/ginger_shot.png")} alt="Ginger Shot" className="w-full h-full object-cover mix-blend-multiply" />
+                  <img
+                    src={getImageUrl("/images/ginger_shot.png")}
+                    alt="Ginger Shot"
+                    className="w-full h-full object-cover mix-blend-multiply"
+                  />
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-serif text-sm font-bold text-organo-green">Add a Ginger Shot?</h4>
-                  <p className="text-xs text-organo-gray mb-3">Boost immunity for just {formatCurrency(60)}</p>
-                  <button 
+                  <h4 className="font-serif text-sm font-bold text-organo-green">
+                    Add a Ginger Shot?
+                  </h4>
+                  <p className="text-xs text-organo-gray mb-3">
+                    Boost immunity for just {formatCurrency(60)}
+                  </p>
+                  <button
                     onClick={() => addToCart("20")}
                     className="text-[0.65rem] font-bold uppercase tracking-[0.1em] bg-white border border-organo-green text-organo-green px-4 py-2 rounded-full hover:bg-organo-green hover:text-white transition-colors w-full"
                   >

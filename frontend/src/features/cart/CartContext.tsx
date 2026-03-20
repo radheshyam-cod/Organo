@@ -10,6 +10,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { cartService } from "../../services/cartService";
 import { useAuth } from "../auth/AuthContext";
+import { toast } from "react-hot-toast";
 
 export interface CartItem {
   id: string;
@@ -44,6 +45,24 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const { token } = useAuth();
   const navigate = useNavigate();
 
+  const refreshCart = useCallback(async () => {
+    if (!token) return;
+    const res = await cartService.get(token);
+    if (res && "cart" in res && res.cart && res.cart.items) {
+      const mapped = res.cart.items.map((item: any) => ({
+        id: item.productId,
+        name: item.product?.name ?? "Product",
+        price: Number(item.price),
+        quantity: item.quantity,
+        image: item.product?.image,
+        measurement: item.product?.measurement,
+      }));
+      setItems(mapped);
+    } else {
+      setItems([]);
+    }
+  }, [token]);
+
   useEffect(() => {
     const fetchCart = async () => {
       if (!token) {
@@ -75,40 +94,42 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     void fetchCart();
   }, [token]);
 
-  const refreshCart = useCallback(async () => {
-    if (!token) return;
-    const res = await cartService.get(token);
-    if (res && "cart" in res && res.cart && res.cart.items) {
-      const mapped = res.cart.items.map((item: any) => ({
-        id: item.productId,
-        name: item.product?.name ?? "Product",
-        price: Number(item.price),
-        quantity: item.quantity,
-        image: item.product?.image,
-        measurement: item.product?.measurement,
-      }));
-      setItems(mapped);
-    } else {
-      setItems([]);
-    }
-  }, [token]);
+  useEffect(() => {
+    const handlePendingAdd = async () => {
+      const pending = localStorage.getItem("organo_pending_add");
+      if (token && pending) {
+        try {
+          await cartService.add(token, pending, 1);
+          await refreshCart();
+          setIsOpen(true);
+        } finally {
+          localStorage.removeItem("organo_pending_add");
+        }
+      }
+    };
+    void handlePendingAdd();
+  }, [token, refreshCart]);
 
   const addToCart = useCallback(
     async (product: string | { id: string | number }) => {
+      const productId = typeof product === "string" ? product : product.id.toString();
       if (!token) {
-        navigate("/account");
+        localStorage.setItem("organo_pending_add", productId);
+        setError("Please log in to add items to your cart.");
         setIsOpen(false);
+        navigate("/account");
         return;
       }
       setLoading(true);
       setError(null);
       try {
-        const productId = typeof product === "string" ? product : product.id.toString();
         await cartService.add(token, productId, 1);
         await refreshCart();
         setIsOpen(true);
+        toast.success("Added to cart");
       } catch (err: any) {
         setError(err.message ?? "Failed to add to cart");
+        toast.error(err.message ?? "Failed to add to cart");
       } finally {
         setLoading(false);
       }

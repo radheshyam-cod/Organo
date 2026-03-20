@@ -51,21 +51,25 @@ export const SubscriptionProvider = ({ children }: { children: ReactNode }) => {
   const pauseSubscription = (id: string) => updateStatus(id, "Paused");
   const resumeSubscription = (id: string) => updateStatus(id, "Active");
   const cancelSubscription = (id: string) => updateStatus(id, "Cancelled");
-  
+
   const skipSubscription = (id: string) => {
-    setSubscriptions(prev => prev.map(sub => {
-      if (sub.id !== id) return sub;
-      const current = new Date(sub.nextDelivery);
-      current.setDate(current.getDate() + 7); // just add 7 days for a skip
-      return { ...sub, nextDelivery: current.toISOString().split('T')[0] };
-    }));
+    setSubscriptions((prev) =>
+      prev.map((sub) => {
+        if (sub.id !== id) return sub;
+        const current = new Date(sub.nextDelivery);
+        current.setDate(current.getDate() + 7); // just add 7 days for a skip
+        return { ...sub, nextDelivery: current.toISOString().split("T")[0] };
+      })
+    );
   };
 
   const swapSubscription = (id: string, newProductName: string) => {
-    setSubscriptions(prev => prev.map(sub => {
-      if (sub.id !== id) return sub;
-      return { ...sub, productName: newProductName };
-    }));
+    setSubscriptions((prev) =>
+      prev.map((sub) => {
+        if (sub.id !== id) return sub;
+        return { ...sub, productName: newProductName };
+      })
+    );
   };
 
   return (

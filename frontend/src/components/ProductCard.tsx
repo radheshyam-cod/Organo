@@ -51,19 +51,28 @@ function ProductCardComponent({
         </div>
         <div className="absolute inset-0 bg-organo-green/85 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 text-center pointer-events-none backdrop-blur-sm">
           {product.description && (
-             <div className="mb-4 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75">
-                <p className="text-white/90 text-sm leading-relaxed line-clamp-3">{product.description}</p>
-             </div>
+            <div className="mb-4 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75">
+              <p className="text-white/90 text-sm leading-relaxed line-clamp-3">
+                {product.description}
+              </p>
+            </div>
           )}
           {product.benefits && product.benefits.length > 0 && (
-             <div className="mb-6 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-100">
-                <p className="text-white/60 text-[10px] font-bold uppercase tracking-widest mb-1">Benefits</p>
-                <div className="flex flex-wrap justify-center gap-1">
-                  {product.benefits.slice(0, 3).map((b) => (
-                    <span key={b} className="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full">{b}</span>
-                  ))}
-                </div>
-             </div>
+            <div className="mb-6 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-100">
+              <p className="text-white/60 text-[10px] font-bold uppercase tracking-widest mb-1">
+                Benefits
+              </p>
+              <div className="flex flex-wrap justify-center gap-1">
+                {product.benefits.slice(0, 3).map((b) => (
+                  <span
+                    key={b}
+                    className="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full"
+                  >
+                    {b}
+                  </span>
+                ))}
+              </div>
+            </div>
           )}
           <button
             type="button"
@@ -74,7 +83,8 @@ function ProductCardComponent({
             className="btn-premium bg-white text-organo-green px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-150 flex items-center gap-2 pointer-events-auto"
             aria-label={`Add ${product.name} to cart`}
           >
-            <Plus size={16} className="relative z-10" /> <span className="relative z-10">Add to Cart</span>
+            <Plus size={16} className="relative z-10" />{" "}
+            <span className="relative z-10">Add to Cart</span>
           </button>
         </div>
       </div>

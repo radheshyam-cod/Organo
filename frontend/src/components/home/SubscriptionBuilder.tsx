@@ -132,8 +132,8 @@ export const SubscriptionBuilder = () => {
                   <div className="flex items-center gap-3">
                     <span className="text-2xl bg-white/10 p-2 rounded-lg">{addon.icon}</span>
                     <div className="text-left">
-                      <div className="font-bold text-sm tracking-wide">{addon.name}</div>
-                        + ₹{addon.price}
+                      <div className="font-bold text-sm tracking-wide">{addon.name}</div>+ ₹
+                      {addon.price}
                     </div>
                   </div>
                   <div className="w-8 h-8 rounded-full bg-organo-pistachio text-organo-green flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">

@@ -214,7 +214,9 @@ function getReason(juice: Product, goal: Goal, workedOut: boolean, _timeOfDay: T
     recovery: `Accelerates recovery — ${juice.benefits[0].toLowerCase()} so your body rebuilds stronger and faster.`,
     immunity: `Fortifies immune defenses — ${juice.benefits[0].toLowerCase()} to keep you at peak strength.`,
   };
-  return goalMessages[goal] || `Supports your ${goal} goals with ${juice.benefits[0].toLowerCase()}.`;
+  return (
+    goalMessages[goal] || `Supports your ${goal} goals with ${juice.benefits[0].toLowerCase()}.`
+  );
 }
 
 function getTiming(timeOfDay: TimeOfDay): string {
@@ -347,13 +349,15 @@ export function getSmartBanner(workedOut: boolean, goal: Goal): SmartBanner {
     },
   };
 
-  return banners[goal] || {
+  return (
+    banners[goal] || {
       title: "Goal Focus",
       message: `Keep pushing towards your ${goal} goals with`,
       emoji: "✨",
       juiceName: "Daily Greens",
       juiceId: 1,
-  };
+    }
+  );
 }
 
 export function getQuickRecommendation(need: "energy" | "recover" | "cleanse"): Product[] {

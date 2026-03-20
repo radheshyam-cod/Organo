@@ -559,25 +559,27 @@ export default function RealTimeRecommender() {
                       <span className="text-lg">📊</span> Signals Analyzed
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {currentRecommendation.signals.map((signal: RecommendationSignal, idx: number) => (
-                        <motion.span
-                          key={idx}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.6 + idx * 0.1 }}
-                          className={`px-3 py-1.5 rounded-full text-xs font-bold shadow-sm ${
-                            signal.priority === "critical"
-                              ? "bg-red-100 text-red-700 border border-red-200"
-                              : signal.priority === "high"
-                                ? "bg-amber-100 text-amber-700 border border-amber-200"
-                                : signal.priority === "medium"
-                                  ? "bg-blue-100 text-blue-700 border border-blue-200"
-                                  : "bg-gray-100 text-gray-700 border border-gray-200"
-                          }`}
-                        >
-                          {signal.name}
-                        </motion.span>
-                      ))}
+                      {currentRecommendation.signals.map(
+                        (signal: RecommendationSignal, idx: number) => (
+                          <motion.span
+                            key={idx}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.6 + idx * 0.1 }}
+                            className={`px-3 py-1.5 rounded-full text-xs font-bold shadow-sm ${
+                              signal.priority === "critical"
+                                ? "bg-red-100 text-red-700 border border-red-200"
+                                : signal.priority === "high"
+                                  ? "bg-amber-100 text-amber-700 border border-amber-200"
+                                  : signal.priority === "medium"
+                                    ? "bg-blue-100 text-blue-700 border border-blue-200"
+                                    : "bg-gray-100 text-gray-700 border border-gray-200"
+                            }`}
+                          >
+                            {signal.name}
+                          </motion.span>
+                        )
+                      )}
                     </div>
                   </motion.div>
 
