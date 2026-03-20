@@ -7,6 +7,7 @@ import {
   useMemo,
   type ReactNode,
 } from "react";
+import { useNavigate } from "react-router-dom";
 import { cartService } from "../../services/cartService";
 import { useAuth } from "../auth/AuthContext";
 
@@ -41,6 +42,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { token } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCart = async () => {
@@ -94,7 +96,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const addToCart = useCallback(
     async (product: string | { id: string | number }) => {
       if (!token) {
-        setError("Please login to add items");
+        navigate("/account");
+        setIsOpen(false);
         return;
       }
       setLoading(true);
@@ -110,7 +113,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         setLoading(false);
       }
     },
-    [token, refreshCart]
+    [token, refreshCart, navigate]
   );
 
   const removeFromCart = useCallback(
