@@ -15,9 +15,15 @@ async function main() {
         // try deleting cart items referencing this product first
         await prisma.cartItem.deleteMany({ where: { productId: p.id } });
         // delete product
-        await prisma.product.delete({ where: { id: p.id } }).catch(() => {
-          // Ignore if it fails due to order references
-        });
+        try {
+          await prisma.product.delete({ where: { id: p.id } });
+        } catch (delErr) {
+          // If it fails due to order references, rename it to free up the unique name constraint
+          await prisma.product.update({
+            where: { id: p.id },
+            data: { name: p.name + " (Legacy " + Math.random().toString(36).substring(7) + ")" },
+          });
+        }
       }
     }
   } catch (err) {
