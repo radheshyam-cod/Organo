@@ -335,7 +335,7 @@ export const Account = () => {
               <User size={32} />
             </div>
             <h1 className="font-serif text-3xl text-organo-green mb-2">
-              {isLogin ? "Welcome Back" : "Join the Harvest"}
+              {isLogin ? "Welcome Back" : "Join the Organo"}
             </h1>
             <p className="text-organo-gray">
               {isLogin

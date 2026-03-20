@@ -80,7 +80,7 @@ npm run build:api && npm run build
 
 ## 6) Folder Structure (high level)
 
-```
+```text
 /api
   /src
     /controllers    # route handlers

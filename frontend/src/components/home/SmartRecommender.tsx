@@ -97,7 +97,7 @@ export const SmartRecommender = () => {
           className="text-center mb-12 sm:mb-16"
         >
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-organo-green/10 to-organo-pistachio/10 text-organo-green px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest mb-4 sm:mb-6 shadow-lg">
-            <Sparkles size={14} className="animate-spin" style={{ animationDuration: "3s" }} />
+            <Sparkles size={14} className="animate-spin [animation-duration:3s]" />
             Smart Recommendations
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-organo-green mb-3 sm:mb-4 bg-gradient-to-r from-organo-green to-organo-pistachio bg-clip-text text-transparent">
@@ -324,10 +324,7 @@ export const SmartRecommender = () => {
               className="text-center py-12 sm:py-16 px-4"
             >
               <div className="max-w-md mx-auto">
-                <div
-                  className="text-4xl sm:text-5xl lg:text-6xl mb-4 sm:mb-6 animate-bounce"
-                  style={{ animationDuration: "2s" }}
-                >
+                <div className="text-4xl sm:text-5xl lg:text-6xl mb-4 sm:mb-6 animate-bounce [animation-duration:2s]">
                   ☝️
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3">

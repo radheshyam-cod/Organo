@@ -53,6 +53,7 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
               {/* Close Button */}
               <button
                 onClick={handleClose}
+                aria-label="Close booking modal"
                 className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-100 rounded-full z-10"
               >
                 <X size={20} />
@@ -70,10 +71,11 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div>
-                        <label className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1">
+                        <label htmlFor="fullName" className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1">
                           Full Name
                         </label>
                         <input
+                          id="fullName"
                           type="text"
                           required
                           value={formData.name}
@@ -84,10 +86,11 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1">
+                        <label htmlFor="email" className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1">
                           Email
                         </label>
                         <input
+                          id="email"
                           type="email"
                           required
                           value={formData.email}
@@ -99,12 +102,13 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
 
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1">
+                          <label htmlFor="bookingDate" className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1">
                             Date
                           </label>
                           <div className="relative">
                             <Calendar className="absolute left-3 top-3.5 text-gray-400" size={16} />
                             <input
+                              id="bookingDate"
                               type="date"
                               required
                               value={formData.date}
@@ -114,12 +118,13 @@ export const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                           </div>
                         </div>
                         <div>
-                          <label className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1">
+                          <label htmlFor="guests" className="block text-sm font-bold text-organo-green uppercase tracking-wide mb-1">
                             Guests
                           </label>
                           <div className="relative">
                             <Users className="absolute left-3 top-3.5 text-gray-400" size={16} />
                             <input
+                              id="guests"
                               type="number"
                               min="1"
                               max="10"

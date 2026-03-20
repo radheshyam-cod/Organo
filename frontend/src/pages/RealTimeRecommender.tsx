@@ -162,7 +162,7 @@ export default function RealTimeRecommender() {
 
             {/* Time of Day */}
             <div className="mb-4 sm:mb-6">
-              <label className="text-sm font-bold text-gray-700 block mb-2 sm:mb-3 flex items-center gap-2">
+              <label className="text-sm font-bold text-gray-700 mb-2 sm:mb-3 flex items-center gap-2">
                 <span className="text-lg sm:text-base">🕐</span>{" "}
                 <span className="hidden sm:inline">Time of Day</span>
                 <span className="sm:hidden">Time</span>
@@ -212,7 +212,7 @@ export default function RealTimeRecommender() {
 
             {/* Activity Signals */}
             <div className="mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-gray-100">
-              <label className="text-sm font-bold text-gray-700 block mb-2 sm:mb-3 flex items-center gap-2">
+              <label className="text-sm font-bold text-gray-700 mb-2 sm:mb-3 flex items-center gap-2">
                 <span className="text-lg sm:text-base">🏃</span> Activity
               </label>
               <div className="space-y-2">
@@ -243,7 +243,7 @@ export default function RealTimeRecommender() {
 
             {/* Health Status */}
             <div className="mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-gray-100">
-              <label className="text-sm font-bold text-gray-700 block mb-2 sm:mb-3 flex items-center gap-2">
+              <label className="text-sm font-bold text-gray-700 mb-2 sm:mb-3 flex items-center gap-2">
                 <span className="text-lg sm:text-base">😴</span> Sleep Quality
               </label>
               <div className="grid grid-cols-2 gap-2">
@@ -284,7 +284,7 @@ export default function RealTimeRecommender() {
 
             {/* Stress Level */}
             <div className="mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-gray-100">
-              <label className="text-sm font-bold text-gray-700 block mb-2 sm:mb-3 flex items-center gap-2">
+              <label className="text-sm font-bold text-gray-700 mb-2 sm:mb-3 flex items-center gap-2">
                 <span className="text-lg sm:text-base">😰</span> Stress Level
               </label>
               <div className="space-y-2">
@@ -318,7 +318,7 @@ export default function RealTimeRecommender() {
 
             {/* Weather */}
             <div className="mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-gray-100">
-              <label className="text-sm font-bold text-gray-700 block mb-2 sm:mb-3 flex items-center gap-2">
+              <label className="text-sm font-bold text-gray-700 mb-2 sm:mb-3 flex items-center gap-2">
                 <span className="text-lg sm:text-base">🌤️</span> Weather
               </label>
               <div className="grid grid-cols-2 gap-2">
@@ -357,7 +357,7 @@ export default function RealTimeRecommender() {
 
             {/* Goal */}
             <div className="mb-4 sm:mb-6">
-              <label className="text-sm font-bold text-gray-700 block mb-2 sm:mb-3 flex items-center gap-2">
+              <label className="text-sm font-bold text-gray-700 mb-2 sm:mb-3 flex items-center gap-2">
                 <span className="text-lg sm:text-base">🎯</span> Primary Goal
               </label>
               <div className="space-y-2">

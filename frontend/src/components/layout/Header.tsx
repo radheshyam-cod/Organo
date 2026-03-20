@@ -157,7 +157,7 @@ export const Header = () => {
   const headerControls = useAnimation();
   const { toggleCart, cartCount } = useCart();
 
-  const notifications = [
+  const [notifications, setNotifications] = useState([
     {
       id: 1,
       text: "Your subscription has been updated",
@@ -178,9 +178,17 @@ export const Header = () => {
       text: "Seasonal juices are now available",
       time: "5 hours ago",
       type: "promotion",
-      read: false,
+      read: true,
     },
-  ];
+  ]);
+
+  const markAllRead = () => {
+    setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
+  };
+
+  const markRead = (id: number) => {
+    setNotifications((prev) => prev.map((n) => (n.id === id ? { ...n, read: true } : n)));
+  };
 
   const handleSearchSubmit = useCallback(
     (e: React.FormEvent) => {
@@ -726,6 +734,7 @@ export const Header = () => {
                 {/* User Menu */}
                 <div className="relative user-menu-container">
                   <button
+                    aria-label="User menu"
                     onClick={() => {
                       if (!isAuthenticated) navigate("/account");
                       else setIsUserMenuOpen(!isUserMenuOpen);
@@ -823,12 +832,14 @@ export const Header = () => {
                 <div className="relative search-container">
                   <button
                     onClick={() => setIsSearchOpen(!isSearchOpen)}
+                    aria-label={isSearchOpen ? "Close search" : "Open search"}
+                    aria-expanded={isSearchOpen}
                     className={cn(
                       "flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300",
                       isElevated
                         ? "border-organo-green/10 bg-white text-organo-green shadow-[0_8px_20px_rgba(28,67,52,0.12)] hover:-translate-y-0.5 hover:bg-organo-green hover:text-white"
                         : "border-white/20 bg-white/10 text-white backdrop-blur-xl hover:-translate-y-0.5 hover:bg-white/18"
-                    )}
+                  )}
                   >
                     <Search size={16} />
                   </button>
@@ -856,6 +867,7 @@ export const Header = () => {
                               />
                               <button
                                 type="button"
+                                aria-label="Close search overlay"
                                 onClick={closeSearch}
                                 className="rounded-full p-1 hover:bg-organo-gray/10 transition-colors"
                               >
@@ -1012,7 +1024,10 @@ export const Header = () => {
                           <div className="p-4 border-b border-organo-green/10">
                             <div className="flex items-center justify-between">
                               <h3 className="font-semibold text-organo-green">Notifications</h3>
-                              <button className="text-xs text-organo-gray/60 hover:text-organo-green transition-colors">
+                              <button
+                                onClick={markAllRead}
+                                className="text-xs text-organo-gray/60 hover:text-organo-green transition-colors"
+                              >
                                 Mark all read
                               </button>
                             </div>
@@ -1021,6 +1036,7 @@ export const Header = () => {
                             {notifications.map((notif) => (
                               <motion.div
                                 key={notif.id}
+                                onClick={() => markRead(notif.id)}
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: notif.id * 0.1 }}

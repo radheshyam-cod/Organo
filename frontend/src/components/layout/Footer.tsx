@@ -16,18 +16,21 @@ const FooterComponent = () => {
             <div className="flex space-x-4">
               <a
                 href="#"
+                aria-label="Instagram"
                 className="p-2 bg-white/10 rounded-full hover:bg-organo-pistachio hover:text-organo-green transition-colors"
               >
                 <Instagram size={20} />
               </a>
               <a
                 href="#"
+                aria-label="Facebook"
                 className="p-2 bg-white/10 rounded-full hover:bg-organo-pistachio hover:text-organo-green transition-colors"
               >
                 <Facebook size={20} />
               </a>
               <a
                 href="#"
+                aria-label="Twitter"
                 className="p-2 bg-white/10 rounded-full hover:bg-organo-pistachio hover:text-organo-green transition-colors"
               >
                 <Twitter size={20} />
