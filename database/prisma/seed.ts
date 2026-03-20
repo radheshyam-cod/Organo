@@ -1,320 +1,69 @@
 import { PrismaClient } from "@prisma/client";
+import { PRODUCTS } from "../../frontend/src/data/products.ts";
 
 const prisma = new PrismaClient();
 
-const products = [
-  {
-    name: "Green Gold",
-    description: "A nutrient-dense blend of leafy greens and refreshing cucumber.",
-    price: 90,
-    image: "/images/green_gold.png",
-    category: "detox",
-    stock: 50,
-    tags: ["green", "cleanse", "organic"],
-    benefits: ["Energy", "Detox"],
-  },
-  {
-    name: "Citrus Sun",
-    description: "Bright citrus fruits packed with Vitamin C to start your day right.",
-    price: 80,
-    image: "/images/citrus_sun.png",
-    category: "energy",
-    stock: 40,
-    tags: ["citrus", "morning", "immunity"],
-    benefits: ["Immunity", "Energy"],
-  },
-  {
-    name: "Beet It",
-    description: "Earthy root vegetables combined with sweet apple for cardiovascular health.",
-    price: 100,
-    image: "/images/beet_it.png",
-    category: "recovery",
-    stock: 35,
-    tags: ["roots", "blood-flow", "stamina"],
-    benefits: ["Recovery", "Heart Health"],
-  },
-  {
-    name: "Tropical Twist",
-    description: "A vacation in a bottle: pineapple, mango, and a hint of mint.",
-    price: 90,
-    image: "/images/tropical_twist.png",
-    category: "refresh",
-    stock: 60,
-    tags: ["sweet", "refreshing", "summer"],
-    benefits: ["Hydration", "Digestion"],
-  },
-  {
-    name: "Berry Blast",
-    description: "Antioxidant-rich berries blended to perfection.",
-    price: 110,
-    image: "/images/berry_blast.png",
-    category: "immunity",
-    stock: 25,
-    tags: ["berries", "antioxidant", "sweet"],
-    benefits: ["Anti-aging", "Immunity"],
-  },
-  {
-    name: "Midnight Detox",
-    description: "Activated charcoal and lemonade for a deep cleanse.",
-    price: 80,
-    image: "/images/midnight_detox.png",
-    category: "detox",
-    stock: 45,
-    tags: ["charcoal", "lemon", "cleanse"],
-    benefits: ["Detox", "Digestion"],
-  },
-  {
-    name: "Golden Glow",
-    description: "Turmeric and ginger shine in this anti-inflammatory powerhouse.",
-    price: 90,
-    image: "/images/golden_glow.png",
-    category: "immunity",
-    stock: 55,
-    tags: ["turmeric", "ginger", "spicy"],
-    benefits: ["Joint Health", "Immunity"],
-  },
-  {
-    name: "Sapphire Sky",
-    description: "Blue spirulina and coconut water for ultimate hydration.",
-    price: 100,
-    image: "/images/sapphire_sky.png",
-    category: "refresh",
-    stock: 30,
-    tags: ["blue", "coconut", "hydration"],
-    benefits: ["Hydration", "Skin Health"],
-  },
-  {
-    name: "Almond Mylk",
-    description: "Creamy and nourishing, a perfect dairy-free alternative.",
-    price: 90,
-    image: "/images/almond_mylk.png",
-    category: "recovery",
-    stock: 50,
-    tags: ["almond", "dairy-free", "creamy"],
-    benefits: ["Bone Health", "Energy"],
-  },
-  {
-    name: "Avocados",
-    description: "Fresh, ripe premium avocados packed with healthy fats.",
-    price: 80,
-    image: "/images/avocados.png",
-    category: "farm",
-    stock: 100,
-    tags: ["avocado", "fresh", "healthy-fats"],
-    benefits: ["Heart Health", "Skin Health"],
-  },
-  {
-    name: "Blueberries",
-    description: "Freshly picked organic blueberries bursting with antioxidants.",
-    price: 95,
-    image: "/images/blueberries.png",
-    category: "farm",
-    stock: 80,
-    tags: ["berries", "antioxidant", "fresh"],
-    benefits: ["Anti-aging", "Brain Health"],
-  },
-  {
-    name: "Celery Calm",
-    description: "Pure celery juice for ultimate digestion support and calm.",
-    price: 85,
-    image: "/images/celery_calm.png",
-    category: "detox",
-    stock: 45,
-    tags: ["celery", "cleanse", "hydration"],
-    benefits: ["Digestion", "Hydration"],
-  },
-  {
-    name: "Fruit Lovers Box",
-    description: "A curated box of the season's best organic fruits.",
-    price: 150,
-    image: "/images/fruit_lovers_box.png",
-    category: "farm",
-    stock: 25,
-    tags: ["box", "fruits", "organic"],
-    benefits: ["Immunity", "Energy"],
-  },
-  {
-    name: "Ginger Shot",
-    description: "A quick, potent shot of ginger for immediate immune boost.",
-    price: 80,
-    image: "/images/ginger_shot.png",
-    category: "immunity",
-    stock: 200,
-    tags: ["ginger", "shot", "spicy"],
-    benefits: ["Immunity", "Digestion"],
-  },
-  {
-    name: "Golden Mango Delight",
-    description: "Sweet and tropical mango mixed with organic turmeric.",
-    price: 110,
-    image: "/images/golden_mango_delight.png",
-    category: "energy",
-    stock: 55,
-    tags: ["mango", "turmeric", "sweet"],
-    benefits: ["Energy", "Joint Health"],
-  },
-  {
-    name: "Green Machine Box",
-    description: "A diverse selection of farm-fresh green vegetables in a box.",
-    price: 150,
-    image: "/images/green_machine_box.png",
-    category: "farm",
-    stock: 30,
-    tags: ["greens", "box", "vegetables"],
-    benefits: ["Detox", "Digestion"],
-  },
-  {
-    name: "Guavas",
-    description: "Sweet and aromatic fresh farm guavas.",
-    price: 85,
-    image: "/images/guavas.png",
-    category: "farm",
-    stock: 60,
-    tags: ["guava", "sweet", "fresh"],
-    benefits: ["Immunity", "Skin Health"],
-  },
-  {
-    name: "Lavender Lemonade",
-    description: "A relaxing and refreshing twist on classic lemonade.",
-    price: 90,
-    image: "/images/lavender_lemonade.png",
-    category: "refresh",
-    stock: 40,
-    tags: ["lavender", "lemon", "floral"],
-    benefits: ["Relaxation", "Hydration"],
-  },
-  {
-    name: "Pure Greens",
-    description: "An uncompromised blend of the deeply nutritious dark leafy greens.",
-    price: 100,
-    image: "/images/pure_greens.png",
-    category: "detox",
-    stock: 45,
-    tags: ["greens", "cleanse", "pure"],
-    benefits: ["Detox", "Energy"],
-  },
-  {
-    name: "Red Bell Peppers",
-    description: "Crisp, sweet, and vividly colored red bell peppers.",
-    price: 80,
-    image: "/images/red_bell_peppers.png",
-    category: "farm",
-    stock: 120,
-    tags: ["peppers", "vegetables", "fresh"],
-    benefits: ["Immunity", "Vision"],
-  },
-  {
-    name: "Red Grapes",
-    description: "Sweet and juicy seedless red grapes, perfect for snacking.",
-    price: 90,
-    image: "/images/red_grapes.png",
-    category: "farm",
-    stock: 75,
-    tags: ["grapes", "sweet", "fresh"],
-    benefits: ["Heart Health", "Antioxidant"],
-  },
-  {
-    name: "Root Radiance",
-    description: "Rooted nutrition from carrots, beets, and sweet potatoes.",
-    price: 95,
-    image: "/images/root_radiance.png",
-    category: "recovery",
-    stock: 35,
-    tags: ["roots", "earthy", "glow"],
-    benefits: ["Skin Health", "Recovery"],
-  },
-  {
-    name: "Root Veggie Bundle",
-    description: "A chef's selection bundle of farm-fresh root vegetables.",
-    price: 120,
-    image: "/images/root_veggie_bundle.png",
-    category: "farm",
-    stock: 25,
-    tags: ["bundle", "roots", "vegetables"],
-    benefits: ["Digestion", "Energy"],
-  },
-  {
-    name: "Ruby Revive",
-    description: "A vibrant ruby red juice bursting with antioxidants.",
-    price: 110,
-    image: "/images/ruby_revive.png",
-    category: "recovery",
-    stock: 40,
-    tags: ["ruby", "berry", "revive"],
-    benefits: ["Recovery", "Heart Health"],
-  },
-  {
-    name: "Seasonal Harvest Box",
-    description: "A diverse and abundant mix of our season's best offerings.",
-    price: 160,
-    image: "/images/seasonal_harvest_box.png",
-    category: "farm",
-    stock: 15,
-    tags: ["harvest", "box", "variety"],
-    benefits: ["Immunity", "Overall Wellness"],
-  },
-  {
-    name: "Spicy Mango Tang",
-    description: "A tropical mango blend with a surprising kick of heat.",
-    price: 100,
-    image: "/images/spicy_mango_tang.png",
-    category: "energy",
-    stock: 50,
-    tags: ["mango", "spicy", "tangy"],
-    benefits: ["Energy", "Metabolism"],
-  },
-  {
-    name: "Strawberries",
-    description: "Bright red, juicy, and incredibly sweet farm strawberries.",
-    price: 90,
-    image: "/images/strawberries.png",
-    category: "farm",
-    stock: 80,
-    tags: ["berries", "sweet", "fresh"],
-    benefits: ["Antioxidant", "Heart Health"],
-  },
-  {
-    name: "Sunset Spice",
-    description: "A warming and comforting spiced drink with immune benefits.",
-    price: 95,
-    image: "/images/sunset_spice.png",
-    category: "immunity",
-    stock: 45,
-    tags: ["spice", "warm", "comfort"],
-    benefits: ["Immunity", "Digestion"],
-  },
-  {
-    name: "Sweet Potatoes",
-    description: "Earthy, rich, and naturally sweet potatoes fresh from the farm.",
-    price: 85,
-    image: "/images/sweet_potatoes.png",
-    category: "farm",
-    stock: 100,
-    tags: ["potatoes", "roots", "fresh"],
-    benefits: ["Energy", "Digestion"],
-  },
-  {
-    name: "Watermelon Hydrate",
-    description: "Crisp and ultra-hydrating watermelon refreshment.",
-    price: 90,
-    image: "/images/watermelon_hydrate.png",
-    category: "refresh",
-    stock: 60,
-    tags: ["watermelon", "hydration", "summer"],
-    benefits: ["Hydration", "Recovery"],
-  },
-];
-
 async function main() {
   console.log("Start seeding...");
-  for (const p of products) {
-    const product = await prisma.product.upsert({
-      where: { name: p.name },
-      update: { price: p.price },
-      create: p,
-    });
-    console.log(`Created product with id: ${product.id}`);
+
+  // Try to clean up existing products that might have conflicting names
+  // We only delete products with long IDs (cuids) to avoid deleting the correct ones
+  try {
+    const oldProducts = await prisma.product.findMany({});
+    for (const p of oldProducts) {
+      if (p.id.length > 10) {
+        // try deleting cart items referencing this product first
+        await prisma.cartItem.deleteMany({ where: { productId: p.id } });
+        // delete product
+        await prisma.product.delete({ where: { id: p.id } }).catch(() => {
+          // Ignore if it fails due to order references
+        });
+      }
+    }
+  } catch (err) {
+    console.log("Cleanup failed or skipped", err instanceof Error ? err.message : err);
   }
+
+  const allProducts = [
+    ...PRODUCTS.juices.map((p) => ({ ...p, category: "juices" })),
+    ...PRODUCTS.vegetables.map((p) => ({ ...p, category: "vegetables" })),
+    ...PRODUCTS.fruits.map((p) => ({ ...p, category: "fruits" })),
+  ];
+
+  for (const p of allProducts) {
+    try {
+      const product = await prisma.product.upsert({
+        where: { id: p.id.toString() },
+        update: {
+          name: p.name,
+          price: p.price,
+          image: p.image,
+          description: p.description,
+          tags: p.tag ? [p.tag] : [],
+          benefits: p.benefits,
+          category: p.category,
+        },
+        create: {
+          id: p.id.toString(),
+          name: p.name,
+          price: p.price,
+          image: p.image,
+          category: p.category,
+          description: p.description,
+          tags: p.tag ? [p.tag] : [],
+          benefits: p.benefits || [],
+          stock: 100,
+        },
+      });
+      console.log(`Upserted product: ${product.name} with id: ${product.id}`);
+    } catch (upsertErr) {
+      console.log(
+        `Failed to upsert ${p.name}:`,
+        upsertErr instanceof Error ? upsertErr.message : upsertErr
+      );
+    }
+  }
+
   console.log("Seeding finished.");
 }
 
