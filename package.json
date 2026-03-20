@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d frontend/dist",
     "build:backend": "cd backend && tsc -p tsconfig.json",
     "start:backend": "node backend/dist/server.js",
+    "start:api": "npm run start:backend",
     "lint": "cd frontend && eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
