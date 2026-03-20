@@ -10,7 +10,6 @@ import {
 import { useNavigate } from "react-router-dom";
 import { cartService } from "../../services/cartService";
 import { useAuth } from "../auth/AuthContext";
-import { toast } from "react-hot-toast";
 
 export interface CartItem {
   id: string;
@@ -47,6 +46,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const refreshCart = useCallback(async () => {
     if (!token) return;
+    console.log("Fetching cart for user");
     const res = await cartService.get(token);
     if (res && "cart" in res && res.cart && res.cart.items) {
       const mapped = res.cart.items.map((item: any) => ({
@@ -64,35 +64,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   }, [token]);
 
   useEffect(() => {
-    const fetchCart = async () => {
-      if (!token) {
-        setItems([]);
-        return;
-      }
-      try {
-        setLoading(true);
-        const res = await cartService.get(token);
-        if (res && "cart" in res && res.cart && res.cart.items) {
-          const mapped = res.cart.items.map((item: any) => ({
-            id: item.productId,
-            name: item.product?.name ?? "Product",
-            price: Number(item.price),
-            quantity: item.quantity,
-            image: item.product?.image,
-            measurement: item.product?.measurement,
-          }));
-          setItems(mapped);
-        } else {
-          setItems([]);
-        }
-      } catch (err: any) {
-        setError(err.message ?? "Failed to load cart");
-      } finally {
-        setLoading(false);
-      }
-    };
-    void fetchCart();
-  }, [token]);
+    void refreshCart();
+  }, [refreshCart]);
 
   useEffect(() => {
     const handlePendingAdd = async () => {
@@ -113,6 +86,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const addToCart = useCallback(
     async (product: string | { id: string | number }) => {
       const productId = typeof product === "string" ? product : product.id.toString();
+      console.log("AddToCart clicked", { productId, hasToken: !!token });
       if (!token) {
         localStorage.setItem("organo_pending_add", productId);
         setError("Please log in to add items to your cart.");
@@ -123,13 +97,18 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       setLoading(true);
       setError(null);
       try {
+        console.log("POST /api/cart/add payload", { productId, quantity: 1 });
         await cartService.add(token, productId, 1);
         await refreshCart();
         setIsOpen(true);
-        toast.success("Added to cart");
       } catch (err: any) {
-        setError(err.message ?? "Failed to add to cart");
-        toast.error(err.message ?? "Failed to add to cart");
+        const message = err?.response?.data?.message ?? err?.message ?? "Failed to add to cart";
+        setError(message);
+        if (err?.response?.status === 401) {
+          localStorage.removeItem("organo_token");
+          navigate("/account");
+        }
+        console.error("AddToCart error", err?.response ?? err);
       } finally {
         setLoading(false);
       }

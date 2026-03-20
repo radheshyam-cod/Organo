@@ -517,15 +517,15 @@ export default function WellnessOperationsCenter() {
                       : "border-gray-200 hover:border-organo-green/50 hover:bg-organo-cream/30"
                   }`}
                 >
-                  <p className="font-bold text-gray-800 flex items-center gap-3 mb-2">
-                    <div className="p-2 bg-organo-green/10 rounded-lg">
+                  <div className="font-bold text-gray-800 flex items-center gap-3 mb-2">
+                    <span className="p-2 bg-organo-green/10 rounded-lg inline-flex">
                       <HelpCircle size={18} className="text-organo-green" />
-                    </div>
+                    </span>
                     {key
                       .split("-")
                       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
                       .join(" ")}
-                  </p>
+                  </div>
                   <AnimatePresence>
                     {selectedHelp === key && (
                       <motion.p

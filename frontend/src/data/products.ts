@@ -4,6 +4,7 @@ export interface Product {
   id: number;
   name: string;
   price: number;
+  category?: string;
   image: string;
   tag: string;
   description: string;
@@ -266,6 +267,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: 40,
       name: "Organic Spinach",
       price: 50,
+      category: "Vegetables",
       image:
         "https://images.unsplash.com/photo-1576045057995-568f588f82fb?q=80&w=2940&auto=format&fit=crop",
       tag: "Leafy",
@@ -279,6 +281,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: 41,
       name: "Curly Kale",
       price: 40,
+      category: "Vegetables",
       image:
         "https://images.unsplash.com/photo-1524179091875-bf99a9a6af57?q=80&w=2896&auto=format&fit=crop",
       tag: "Superfood",
@@ -292,6 +295,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: 42,
       name: "Orange Carrots",
       price: 30,
+      category: "Vegetables",
       image:
         "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=2787&auto=format&fit=crop",
       tag: "Crunchy",
@@ -304,6 +308,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: 43,
       name: "Broccoli Florets",
       price: 50,
+      category: "Vegetables",
       image:
         "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?q=80&w=2802&auto=format&fit=crop",
       tag: "Fresh",
@@ -317,8 +322,9 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: 44,
       name: "Red Bell Peppers",
       price: 20,
+      category: "Vegetables",
       image: "/images/red_bell_peppers.png",
-      tag: "Sweet",
+      tag: "Vegetables",
       description:
         "Crisp and sweet red bell peppers. High in Vitamin C and perfect for stuffing or snacking.",
       ingredients: ["Organic Red Pepper"],
@@ -329,8 +335,9 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: 45,
       name: "Sweet Potatoes",
       price: 30,
+      category: "Vegetables",
       image: "/images/sweet_potatoes.png",
-      tag: "Root",
+      tag: "Vegetables",
       description: "Naturally sweet and creamy tubers. Rich in fiber and complex carbohydrates.",
       ingredients: ["Organic Sweet Potato"],
       benefits: ["Gut health", "Brain function", "Immunity", "Vitamin A"],
@@ -340,9 +347,10 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: 46,
       name: "Cherry Tomatoes",
       price: 40,
+      category: "Vegetables",
       image:
         "https://images.unsplash.com/photo-1561136594-7f68413baa99?q=80&w=2940&auto=format&fit=crop",
-      tag: "Bite-size",
+      tag: "Vegetables",
       description: "Bursting with flavor. These sweet cherry tomatoes are like nature's candy.",
       ingredients: ["Organic Cherry Tomatoes"],
       benefits: ["Lycopene", "Heart health", "Skin health", "Vitamin C"],
@@ -352,9 +360,10 @@ export const PRODUCTS: Record<Category, Product[]> = {
       id: 47,
       name: "Red Onions",
       price: 20,
+      category: "Vegetables",
       image:
         "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?q=80&w=2874&auto=format&fit=crop",
-      tag: "Sharp",
+      tag: "Vegetables",
       description:
         "Pungent and colorful. Essential for salads, pickling, or adding depth to cooked dishes.",
       ingredients: ["Organic Red Onion"],

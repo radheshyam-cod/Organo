@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Zap,
@@ -14,10 +14,13 @@ import {
 import { getQuickRecommendation } from "../../ai/juiceAdvisor";
 import { useCart } from "../../features/cart/CartContext";
 import { Link } from "react-router-dom";
-import type { Product } from "../../data/products";
+import type { Product as StaticProduct } from "../../data/products";
+import { useProducts } from "../../hooks/useProducts";
 import { formatCurrency, getImageUrl } from "../../lib/utils";
 
 type Need = "energy" | "recover" | "cleanse";
+
+type RecommendedProduct = StaticProduct & { backendId?: string };
 
 const NEEDS: {
   id: Need;
@@ -63,20 +66,62 @@ function getTimeContext(): { greeting: string; context: string } {
 
 export const SmartRecommender = () => {
   const [selected, setSelected] = useState<Need | null>(null);
-  const [recommendations, setRecommendations] = useState<Product[]>([]);
+  const [recommendations, setRecommendations] = useState<RecommendedProduct[]>([]);
   const [isGenerating, setIsGenerating] = useState(false);
-  const { addToCart } = useCart();
+  const [localError, setLocalError] = useState<string | null>(null);
+  const { addToCart, loading: cartLoading, error: cartError } = useCart();
+  const { products: liveProducts, loading: productsLoading } = useProducts();
   const { greeting, context } = getTimeContext();
+
+  const mapToLiveProduct = useCallback(
+    (juice: StaticProduct): RecommendedProduct => {
+      const live = liveProducts.find((p) => p.name.toLowerCase() === juice.name.toLowerCase());
+
+      if (!live) return juice;
+
+      return {
+        ...juice,
+        backendId: live.id,
+        price: Number(live.price),
+        image: live.image ?? juice.image,
+        tag: live.tag ?? juice.tag,
+        measurement: live.measurement ?? juice.measurement,
+      };
+    },
+    [liveProducts]
+  );
+
+  useEffect(() => {
+    if (!liveProducts.length || !recommendations.length) return;
+    if (!recommendations.some((rec) => !rec.backendId)) return;
+    setRecommendations((current) => current.map(mapToLiveProduct));
+  }, [liveProducts, recommendations, mapToLiveProduct]);
 
   const handleNeedSelect = async (need: Need) => {
     setIsGenerating(true);
     setSelected(need);
+    setLocalError(null);
 
     // Simulate processing time for better UX
     await new Promise((resolve) => setTimeout(resolve, 500));
 
-    setRecommendations(getQuickRecommendation(need));
+    const mapped = getQuickRecommendation(need).map(mapToLiveProduct);
+    setRecommendations(mapped);
     setIsGenerating(false);
+  };
+
+  const handleAddToCart = async (juice: RecommendedProduct) => {
+    const backendId =
+      juice.backendId ??
+      liveProducts.find((p) => p.name.toLowerCase() === juice.name.toLowerCase())?.id;
+
+    if (!backendId) {
+      setLocalError("This item isn't available right now. Please pick another juice.");
+      return;
+    }
+
+    setLocalError(null);
+    await addToCart(backendId);
   };
 
   return (
@@ -161,6 +206,12 @@ export const SmartRecommender = () => {
             </motion.button>
           ))}
         </motion.div>
+
+        {(cartError || localError) && (
+          <div className="max-w-xl mx-auto mb-6 px-4 py-3 text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl text-center">
+            {cartError ?? localError}
+          </div>
+        )}
 
         {/* Enhanced Results */}
         <AnimatePresence mode="wait">
@@ -263,8 +314,11 @@ export const SmartRecommender = () => {
                         <motion.button
                           whileHover={{ scale: 1.05, y: -2 }}
                           whileTap={{ scale: 0.95 }}
-                          onClick={() => addToCart(juice.id.toString())}
-                          className="bg-gradient-to-r from-organo-green to-organo-green/90 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-3 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl hover:shadow-lg transition-all duration-200 flex items-center gap-1.5 sm:gap-2 shadow-lg"
+                          onClick={() => void handleAddToCart(juice)}
+                          disabled={cartLoading || productsLoading}
+                          className={`bg-gradient-to-r from-organo-green to-organo-green/90 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-3 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl hover:shadow-lg transition-all duration-200 flex items-center gap-1.5 sm:gap-2 shadow-lg ${
+                            cartLoading || productsLoading ? "opacity-70 cursor-not-allowed" : ""
+                          }`}
                         >
                           <ShoppingCart size={12} className="sm:hidden" />
                           <ShoppingCart size={14} className="hidden sm:block" />

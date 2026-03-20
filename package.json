@@ -20,7 +20,8 @@
     "prisma:generate": "prisma generate --schema database/prisma/schema.prisma",
     "prisma:migrate": "prisma migrate dev --schema database/prisma/schema.prisma",
     "deploy:gh": "npm run build:frontend && gh-pages -d frontend/dist -b gh-pages",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build:api": "npm run build:backend"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",

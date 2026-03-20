@@ -33,13 +33,34 @@ export const Shop = () => {
   const [direction, setDirection] = useState(0);
   const { addToCart } = useCart();
 
+  const vegIds = useMemo(() => new Set([40, 41, 42, 43, 44, 45, 46, 47]), []);
+  const fruitIds = useMemo(() => new Set([50, 51, 52, 53, 54, 55, 56, 57]), []);
+  const juiceIds = useMemo(
+    () =>
+      new Set([
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
+      ]),
+    []
+  );
+
+  const normalizedProducts = useMemo(
+    () =>
+      products.map((p) => {
+        const cat = p.category?.toLowerCase();
+        let categoryResolved: Category | "Unknown" = "Unknown";
+        if (cat === "vegetables" || vegIds.has(Number(p.id))) categoryResolved = "Vegetables";
+        else if (cat === "fruits" || fruitIds.has(Number(p.id))) categoryResolved = "Fruits";
+        else if (cat === "juice" || cat === "juices" || juiceIds.has(Number(p.id)))
+          categoryResolved = "Juice";
+        return { ...p, categoryResolved };
+      }),
+    [products, vegIds, fruitIds, juiceIds]
+  );
+
   const filteredProducts = useMemo(() => {
-    if (activeCategory === "All") return products;
-    const target = activeCategory.toLowerCase();
-    return products.filter(
-      (p) => (p.category ?? "").toLowerCase() === target || (p.tag ?? "").toLowerCase() === target
-    );
-  }, [products, activeCategory]);
+    if (activeCategory === "All") return normalizedProducts;
+    return normalizedProducts.filter((p: any) => p.categoryResolved === activeCategory);
+  }, [normalizedProducts, activeCategory]);
 
   const changeCategory = (newCategory: Category) => {
     const currentIndex = categories.indexOf(activeCategory);
