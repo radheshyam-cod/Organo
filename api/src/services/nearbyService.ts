@@ -90,7 +90,7 @@ export async function findNearby(
       rating: p.rating ?? null,
       address: p.vicinity ?? p.formatted_address ?? "",
     }))
-    .filter((p) => (p.rating ?? 0) >= minRating);
+    .filter((p: any) => (p.rating ?? 0) >= minRating);
 
   const response = { results, source: "google-places", cached: false };
   cache.set(key, { timestamp: Date.now(), data: response });

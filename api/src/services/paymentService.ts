@@ -27,13 +27,13 @@ export async function createPaymentOrder({ userId, orderId }: CreatePaymentInput
   // Razorpay expects amount in paise
   const amountPaise = Math.round(Number(order.totalAmount) * 100);
 
-  const razorpayOrder = await razorpayClient.orders.create({
+  const razorpayOrder = (await razorpayClient.orders.create({
     amount: amountPaise,
     currency: "INR",
     receipt: order.id,
     notes: { userId },
-    payment_capture: 1,
-  });
+    payment_capture: true,
+  })) as any;
 
   await prisma.payment.upsert({
     where: { orderId: order.id },
