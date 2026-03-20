@@ -16,7 +16,7 @@ export const ScrollyTelling = () => {
       id: 1,
       title: "Grown in Ojai",
       desc: "Our regenerative soil captures carbon and fuels nutrient density. Tended by Head Farmer Mateo.",
-      image: "/images/ojai_farm.png",
+      image: `${import.meta.env.BASE_URL}images/ojai_farm.png`,
     },
     {
       id: 2,
@@ -29,7 +29,7 @@ export const ScrollyTelling = () => {
       id: 3,
       title: "Delivered Zero-Emission",
       desc: "From our farm to your glass in reusable glass bottles. We pick up your empties on the next run.",
-      image: "/images/zero_emission_delivery.png",
+      image: `${import.meta.env.BASE_URL}images/zero_emission_delivery.png`,
     },
   ];
 

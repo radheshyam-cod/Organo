@@ -78,7 +78,7 @@ export const TheFarm = () => {
               </div>
             ) : (
               <video
-                src="/video/Organic_Juice_Brand_Video.mp4"
+                src={`${import.meta.env.BASE_URL}video/Organic_Juice_Brand_Video.mp4`}
                 title="Organic Farming Video"
                 autoPlay
                 controls
@@ -167,7 +167,7 @@ export const TheFarm = () => {
             <div className="md:w-1/2 relative">
               <div className="absolute -inset-4 border-2 border-organo-pistachio rounded-2xl z-0 transform rotate-3" />
               <img
-                src="/images/founder_in_field.png"
+                src={`${import.meta.env.BASE_URL}images/founder_in_field.png`}
                 alt="Founder in field"
                 className="rounded-2xl shadow-xl relative z-10 w-full"
               />
@@ -201,7 +201,7 @@ export const TheFarm = () => {
               {
                 name: "Elena Rodriguez",
                 role: "Harvest Manager",
-                img: "/images/elena_rodriguez.png",
+                img: `${import.meta.env.BASE_URL}images/elena_rodriguez.png`,
               },
             ].map((member, i) => (
               <motion.div key={i} whileHover={{ y: -10 }} className="group">
