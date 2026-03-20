@@ -1,7 +1,7 @@
 import { memo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Trash2, ShoppingBag, ArrowRight, Minus, Plus } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useCart } from "../../features/cart/CartContext";
 import { formatCurrency, cn, getImageUrl } from "../../lib/utils";
 
@@ -79,12 +79,13 @@ const CartDrawerComponent = () => {
                 <div className="h-full flex flex-col items-center justify-center text-center space-y-4 text-organo-gray/60">
                   <ShoppingBag size={64} className="opacity-20" />
                   <p className="text-lg">Your bag is empty.</p>
-                  <button
+                  <Link
+                    to="/shop"
                     onClick={toggleCart}
                     className="text-organo-green font-bold uppercase tracking-wider text-sm hover:underline"
                   >
                     Start Shopping
-                  </button>
+                  </Link>
                 </div>
               ) : (
                 items.map((item) => (

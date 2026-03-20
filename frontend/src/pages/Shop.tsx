@@ -6,7 +6,7 @@ import { ProductSkeleton } from "../components/ProductSkeleton";
 import { useCart } from "../features/cart/CartContext";
 import { cn } from "../lib/utils";
 
-type Category = string;
+type Category = "All" | "Fruits" | "Vegetables" | "Juice";
 
 const variants = {
   enter: (direction: number) => ({
@@ -27,19 +27,19 @@ const variants = {
 
 export const Shop = () => {
   const { products, loading, error } = useProducts();
-  const categories = useMemo<Category[]>(() => {
-    const cats = Array.from(new Set(products.map((p) => p.category || "All")));
-    return cats.length ? ["All", ...cats.filter((c) => c !== "All")] : ["All"];
-  }, [products]);
+  const categories: Category[] = ["All", "Fruits", "Vegetables", "Juice"];
 
   const [activeCategory, setActiveCategory] = useState<Category>("All");
   const [direction, setDirection] = useState(0);
   const { addToCart } = useCart();
 
-  const filteredProducts = useMemo(
-    () => products.filter((p) => activeCategory === "All" || p.category === activeCategory),
-    [products, activeCategory]
-  );
+  const filteredProducts = useMemo(() => {
+    if (activeCategory === "All") return products;
+    const target = activeCategory.toLowerCase();
+    return products.filter(
+      (p) => (p.category ?? "").toLowerCase() === target || (p.tag ?? "").toLowerCase() === target
+    );
+  }, [products, activeCategory]);
 
   const changeCategory = (newCategory: Category) => {
     const currentIndex = categories.indexOf(activeCategory);

@@ -1,6 +1,10 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import type { UserContext } from "../ai/recommendationEngine";
+import type {
+  UserContext,
+  RecommendationSignal,
+  JuiceRecommendation,
+} from "../ai/recommendationEngine";
 import {
   Zap,
   Clock,
@@ -16,7 +20,7 @@ import {
 } from "lucide-react";
 import { generateRecommendation, generateWeeklyRecommendations } from "../ai/recommendationEngine";
 import { useCart } from "../features/cart/CartContext";
-import { useProducts } from "../hooks/useProducts";
+import { useProducts, type Product } from "../hooks/useProducts";
 import { formatCurrency, getImageUrl } from "../lib/utils";
 
 export default function RealTimeRecommender() {
@@ -48,7 +52,7 @@ export default function RealTimeRecommender() {
   ) => {
     setIsGenerating(true);
     // Simulate processing time for better UX
-    await new Promise((resolve) => setTimeout(resolve, 300));
+    await new Promise<void>((resolve) => setTimeout(resolve, 300));
 
     setContext((prev: UserContext) => {
       const updated = { ...prev };
@@ -106,7 +110,7 @@ export default function RealTimeRecommender() {
   };
 
   const juice = currentRecommendation
-    ? products.find((j: any) => j.id.toString() === currentRecommendation.juiceId.toString())
+    ? products.find((j: Product) => j.id.toString() === currentRecommendation.juiceId.toString())
     : null;
 
   return (
@@ -555,7 +559,7 @@ export default function RealTimeRecommender() {
                       <span className="text-lg">📊</span> Signals Analyzed
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {currentRecommendation.signals.map((signal: any, idx: number) => (
+                      {currentRecommendation.signals.map((signal: RecommendationSignal, idx: number) => (
                         <motion.span
                           key={idx}
                           initial={{ opacity: 0, scale: 0.8 }}
@@ -701,9 +705,9 @@ export default function RealTimeRecommender() {
                 exit={{ opacity: 0, y: -20 }}
                 className="grid grid-cols-1 md:grid-cols-2 gap-4"
               >
-                {weeklyRecommendations.map((rec: any, idx: number) => {
+                {weeklyRecommendations.map((rec: JuiceRecommendation, idx: number) => {
                   const weekJuice = products.find(
-                    (j: any) => j.id.toString() === rec.juiceId.toString()
+                    (j: Product) => j.id.toString() === rec.juiceId.toString()
                   );
                   const daysOfWeek = [
                     "Monday",
