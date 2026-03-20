@@ -1,0 +1,1 @@
+import{k as c}from"./index-Ciq35z2R.js";const o=[["path",{d:"M20 6 9 17l-5-5",key:"1gmf2c"}]],a=c("check",o);const e=[["circle",{cx:"8",cy:"21",r:"1",key:"jimo8o"}],["circle",{cx:"19",cy:"21",r:"1",key:"13723u"}],["path",{d:"M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12",key:"9zh506"}]],r=c("shopping-cart",e);export{a as C,r as S};
