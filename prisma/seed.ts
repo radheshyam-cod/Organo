@@ -6,7 +6,7 @@ const products = [
   {
     name: 'Green Gold',
     description: 'A nutrient-dense blend of leafy greens and refreshing cucumber.',
-    price: 900,
+    price: 90,
     image: '/images/green_gold.png',
     category: 'detox',
     stock: 50,
@@ -16,7 +16,7 @@ const products = [
   {
     name: 'Citrus Sun',
     description: 'Bright citrus fruits packed with Vitamin C to start your day right.',
-    price: 800,
+    price: 80,
     image: '/images/citrus_sun.png',
     category: 'energy',
     stock: 40,
@@ -26,7 +26,7 @@ const products = [
   {
     name: 'Beet It',
     description: 'Earthy root vegetables combined with sweet apple for cardiovascular health.',
-    price: 1000,
+    price: 100,
     image: '/images/beet_it.png',
     category: 'recovery',
     stock: 35,
@@ -36,7 +36,7 @@ const products = [
   {
     name: 'Tropical Twist',
     description: 'A vacation in a bottle: pineapple, mango, and a hint of mint.',
-    price: 900,
+    price: 90,
     image: '/images/tropical_twist.png',
     category: 'refresh',
     stock: 60,
@@ -46,7 +46,7 @@ const products = [
   {
     name: 'Berry Blast',
     description: 'Antioxidant-rich berries blended to perfection.',
-    price: 1100,
+    price: 110,
     image: '/images/berry_blast.png',
     category: 'immunity',
     stock: 25,
@@ -56,7 +56,7 @@ const products = [
   {
     name: 'Midnight Detox',
     description: 'Activated charcoal and lemonade for a deep cleanse.',
-    price: 800,
+    price: 80,
     image: '/images/midnight_detox.png',
     category: 'detox',
     stock: 45,
@@ -66,7 +66,7 @@ const products = [
   {
     name: 'Golden Glow',
     description: 'Turmeric and ginger shine in this anti-inflammatory powerhouse.',
-    price: 900,
+    price: 90,
     image: '/images/golden_glow.png',
     category: 'immunity',
     stock: 55,
@@ -76,7 +76,7 @@ const products = [
   {
     name: 'Sapphire Sky',
     description: 'Blue spirulina and coconut water for ultimate hydration.',
-    price: 1000,
+    price: 100,
     image: '/images/sapphire_sky.png',
     category: 'refresh',
     stock: 30,
@@ -86,7 +86,7 @@ const products = [
   {
     name: 'Almond Mylk',
     description: 'Creamy and nourishing, a perfect dairy-free alternative.',
-    price: 900,
+    price: 90,
     image: '/images/almond_mylk.png',
     category: 'recovery',
     stock: 50,
@@ -96,7 +96,7 @@ const products = [
   {
     name: 'Avocados',
     description: 'Fresh, ripe premium avocados packed with healthy fats.',
-    price: 800,
+    price: 80,
     image: '/images/avocados.png',
     category: 'farm',
     stock: 100,
@@ -106,7 +106,7 @@ const products = [
   {
     name: 'Blueberries',
     description: 'Freshly picked organic blueberries bursting with antioxidants.',
-    price: 950,
+    price: 95,
     image: '/images/blueberries.png',
     category: 'farm',
     stock: 80,
@@ -116,7 +116,7 @@ const products = [
   {
     name: 'Celery Calm',
     description: 'Pure celery juice for ultimate digestion support and calm.',
-    price: 850,
+    price: 85,
     image: '/images/celery_calm.png',
     category: 'detox',
     stock: 45,
@@ -126,7 +126,7 @@ const products = [
   {
     name: 'Fruit Lovers Box',
     description: 'A curated box of the season\'s best organic fruits.',
-    price: 1500,
+    price: 150,
     image: '/images/fruit_lovers_box.png',
     category: 'farm',
     stock: 25,
@@ -136,7 +136,7 @@ const products = [
   {
     name: 'Ginger Shot',
     description: 'A quick, potent shot of ginger for immediate immune boost.',
-    price: 800,
+    price: 80,
     image: '/images/ginger_shot.png',
     category: 'immunity',
     stock: 200,
@@ -146,7 +146,7 @@ const products = [
   {
     name: 'Golden Mango Delight',
     description: 'Sweet and tropical mango mixed with organic turmeric.',
-    price: 1100,
+    price: 110,
     image: '/images/golden_mango_delight.png',
     category: 'energy',
     stock: 55,
@@ -156,7 +156,7 @@ const products = [
   {
     name: 'Green Machine Box',
     description: 'A diverse selection of farm-fresh green vegetables in a box.',
-    price: 1500,
+    price: 150,
     image: '/images/green_machine_box.png',
     category: 'farm',
     stock: 30,
@@ -166,7 +166,7 @@ const products = [
   {
     name: 'Guavas',
     description: 'Sweet and aromatic fresh farm guavas.',
-    price: 850,
+    price: 85,
     image: '/images/guavas.png',
     category: 'farm',
     stock: 60,
@@ -176,7 +176,7 @@ const products = [
   {
     name: 'Lavender Lemonade',
     description: 'A relaxing and refreshing twist on classic lemonade.',
-    price: 900,
+    price: 90,
     image: '/images/lavender_lemonade.png',
     category: 'refresh',
     stock: 40,
@@ -186,7 +186,7 @@ const products = [
   {
     name: 'Pure Greens',
     description: 'An uncompromised blend of the deeply nutritious dark leafy greens.',
-    price: 1000,
+    price: 100,
     image: '/images/pure_greens.png',
     category: 'detox',
     stock: 45,
@@ -196,7 +196,7 @@ const products = [
   {
     name: 'Red Bell Peppers',
     description: 'Crisp, sweet, and vividly colored red bell peppers.',
-    price: 800,
+    price: 80,
     image: '/images/red_bell_peppers.png',
     category: 'farm',
     stock: 120,
@@ -206,7 +206,7 @@ const products = [
   {
     name: 'Red Grapes',
     description: 'Sweet and juicy seedless red grapes, perfect for snacking.',
-    price: 900,
+    price: 90,
     image: '/images/red_grapes.png',
     category: 'farm',
     stock: 75,
@@ -216,7 +216,7 @@ const products = [
   {
     name: 'Root Radiance',
     description: 'Rooted nutrition from carrots, beets, and sweet potatoes.',
-    price: 950,
+    price: 95,
     image: '/images/root_radiance.png',
     category: 'recovery',
     stock: 35,
@@ -226,7 +226,7 @@ const products = [
   {
     name: 'Root Veggie Bundle',
     description: 'A chef\'s selection bundle of farm-fresh root vegetables.',
-    price: 1200,
+    price: 120,
     image: '/images/root_veggie_bundle.png',
     category: 'farm',
     stock: 25,
@@ -236,7 +236,7 @@ const products = [
   {
     name: 'Ruby Revive',
     description: 'A vibrant ruby red juice bursting with antioxidants.',
-    price: 1100,
+    price: 110,
     image: '/images/ruby_revive.png',
     category: 'recovery',
     stock: 40,
@@ -246,7 +246,7 @@ const products = [
   {
     name: 'Seasonal Harvest Box',
     description: 'A diverse and abundant mix of our season\'s best offerings.',
-    price: 1600,
+    price: 160,
     image: '/images/seasonal_harvest_box.png',
     category: 'farm',
     stock: 15,
@@ -256,7 +256,7 @@ const products = [
   {
     name: 'Spicy Mango Tang',
     description: 'A tropical mango blend with a surprising kick of heat.',
-    price: 1000,
+    price: 100,
     image: '/images/spicy_mango_tang.png',
     category: 'energy',
     stock: 50,
@@ -266,7 +266,7 @@ const products = [
   {
     name: 'Strawberries',
     description: 'Bright red, juicy, and incredibly sweet farm strawberries.',
-    price: 900,
+    price: 90,
     image: '/images/strawberries.png',
     category: 'farm',
     stock: 80,
@@ -276,7 +276,7 @@ const products = [
   {
     name: 'Sunset Spice',
     description: 'A warming and comforting spiced drink with immune benefits.',
-    price: 950,
+    price: 95,
     image: '/images/sunset_spice.png',
     category: 'immunity',
     stock: 45,
@@ -286,7 +286,7 @@ const products = [
   {
     name: 'Sweet Potatoes',
     description: 'Earthy, rich, and naturally sweet potatoes fresh from the farm.',
-    price: 850,
+    price: 85,
     image: '/images/sweet_potatoes.png',
     category: 'farm',
     stock: 100,
@@ -296,7 +296,7 @@ const products = [
   {
     name: 'Watermelon Hydrate',
     description: 'Crisp and ultra-hydrating watermelon refreshment.',
-    price: 900,
+    price: 90,
     image: '/images/watermelon_hydrate.png',
     category: 'refresh',
     stock: 60,

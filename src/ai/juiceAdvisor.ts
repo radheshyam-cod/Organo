@@ -388,8 +388,8 @@ export function getBundleSuggestions(goal: Goal): BundleSuggestion[] {
       juices: PRODUCTS.juices.filter((j) => GOAL_TAGS[goal].includes(j.tag)).slice(0, 5),
       bundleTitle: `${goal === "fat-loss" ? "Fat Loss" : goal === "recovery" ? "Recovery" : "Immunity"} Starter Pack`,
       bundleDescription: `5-juice variety pack to find your perfect match for ${goal}.`,
-      bundlePrice: 50,
-      savings: 10,
+      bundlePrice: 5,
+      savings: 1,
     },
   ];
 }

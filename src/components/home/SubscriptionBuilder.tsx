@@ -6,10 +6,10 @@ import { useSubscription } from "../../features/subscriptions/SubscriptionContex
 import { formatCurrency } from "../../lib/utils";
 
 const ADDONS = [
-  { id: 1, name: "Ginger Shots", price: 40, icon: "🫚" },
-  { id: 2, name: "Almond Milk", price: 80, icon: "🥛" },
-  { id: 3, name: "Kale Bunch", price: 30, icon: "🥬" },
-  { id: 4, name: "Turmeric Roots", price: 50, icon: "🥕" },
+  { id: 1, name: "Ginger Shots", price: 4, icon: "🫚" },
+  { id: 2, name: "Almond Milk", price: 8, icon: "🥛" },
+  { id: 3, name: "Kale Bunch", price: 3, icon: "🥬" },
+  { id: 4, name: "Turmeric Roots", price: 5, icon: "🥕" },
 ];
 
 export const SubscriptionBuilder = () => {
@@ -37,7 +37,7 @@ export const SubscriptionBuilder = () => {
       description: `A personalized selection containing: ${crate.map((i: { name: string }) => i.name).join(", ")}`,
       frequency: "Weekly",
       nextDelivery: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString(),
-      price: 490.0,
+      price: 49.0,
       image:
         "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=2000&auto=format&fit=crop",
     });
@@ -99,7 +99,7 @@ export const SubscriptionBuilder = () => {
               <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center">
                 <div>
                   <span className="text-sm text-white/50 block">Weekly Total</span>
-                  <span className="text-2xl font-bold font-sans">{formatCurrency(490)}</span>
+                  <span className="text-2xl font-bold font-sans">{formatCurrency(49)}</span>
                 </div>
                 <button
                   onClick={handleSubscribe}

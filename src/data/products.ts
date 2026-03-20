@@ -17,7 +17,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 1,
       name: "Root Radiance",
-      price: 120,
+      price: 12,
       image: "/images/root_radiance.png",
       tag: "Detox",
       description:
@@ -29,7 +29,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 2,
       name: "Green Gold",
-      price: 120,
+      price: 12,
       image: "/images/green_gold.png",
       tag: "Immunity",
       description:
@@ -41,7 +41,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 3,
       name: "Citrus Sun",
-      price: 110,
+      price: 11,
       image: "/images/citrus_sun.png",
       tag: "Energy",
       description:
@@ -53,7 +53,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 7,
       name: "Emerald Hydration",
-      price: 100,
+      price: 10,
       image: "/images/emerald_hydration.png",
       tag: "Hydrate",
       description:
@@ -65,7 +65,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 8,
       name: "Midnight Detox",
-      price: 110,
+      price: 11,
       image: "/images/midnight_detox.png",
       tag: "Cleanse",
       description:
@@ -77,7 +77,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 9,
       name: "Ruby Revive",
-      price: 110,
+      price: 11,
       image: "/images/ruby_revive.png",
       tag: "Hydrate",
       description:
@@ -89,7 +89,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 10,
       name: "Golden Glow",
-      price: 120,
+      price: 12,
       image: "/images/golden_glow.png",
       tag: "Glow",
       description:
@@ -101,7 +101,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 11,
       name: "Sapphire Sky",
-      price: 130,
+      price: 13,
       image: "/images/sapphire_sky.png",
       tag: "Brain",
       description:
@@ -113,7 +113,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 14,
       name: "Sunset Spice",
-      price: 110,
+      price: 11,
       image: "/images/sunset_spice.png",
       tag: "Immunity",
       description:
@@ -125,7 +125,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 15,
       name: "Berry Blast",
-      price: 130,
+      price: 13,
       image: "/images/berry_blast.png",
       tag: "Antioxidant",
       description:
@@ -137,7 +137,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 16,
       name: "Celery Calm",
-      price: 100,
+      price: 10,
       image: "/images/celery_calm.png",
       tag: "Balance",
       description:
@@ -149,7 +149,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 17,
       name: "Tropical Twist",
-      price: 120,
+      price: 12,
       image: "/images/tropical_twist.png",
       tag: "Vitamin C",
       description:
@@ -161,7 +161,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 18,
       name: "Beet It",
-      price: 110,
+      price: 11,
       image: "/images/beet_it.png",
       tag: "Stamina",
       description:
@@ -173,7 +173,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 19,
       name: "Pure Greens",
-      price: 130,
+      price: 13,
       image: "/images/pure_greens.png",
       tag: "Keto",
       description:
@@ -185,7 +185,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 20,
       name: "Ginger Shot",
-      price: 60,
+      price: 6,
       image: "/images/ginger_shot.png",
       tag: "Kick",
       description:
@@ -197,7 +197,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 21,
       name: "Watermelon Hydrate",
-      price: 110,
+      price: 11,
       image: "/images/watermelon_hydrate.png",
       tag: "Refresh",
       description:
@@ -209,7 +209,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 22,
       name: "Lavender Lemonade",
-      price: 110,
+      price: 11,
       image: "/images/lavender_lemonade.png",
       tag: "Calm",
       description:
@@ -221,7 +221,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 23,
       name: "Almond Mylk",
-      price: 140,
+      price: 14,
       image: "/images/almond_mylk.png",
       tag: "Protein",
       description:
@@ -239,7 +239,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 24,
       name: "Golden Mango Delight",
-      price: 130,
+      price: 13,
       image: "/images/golden_mango_delight.png",
       tag: "Vibrant",
       description:
@@ -251,7 +251,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 25,
       name: "Spicy Mango Tang",
-      price: 130,
+      price: 13,
       image: "/images/spicy_mango_tang.png",
       tag: "Zest",
       description:
@@ -265,7 +265,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 40,
       name: "Organic Spinach",
-      price: 50,
+      price: 5,
       image:
         "https://images.unsplash.com/photo-1576045057995-568f588f82fb?q=80&w=2940&auto=format&fit=crop",
       tag: "Leafy",
@@ -278,7 +278,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 41,
       name: "Curly Kale",
-      price: 40,
+      price: 4,
       image:
         "https://images.unsplash.com/photo-1524179091875-bf99a9a6af57?q=80&w=2896&auto=format&fit=crop",
       tag: "Superfood",
@@ -291,7 +291,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 42,
       name: "Orange Carrots",
-      price: 30,
+      price: 3,
       image:
         "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=2787&auto=format&fit=crop",
       tag: "Crunchy",
@@ -303,7 +303,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 43,
       name: "Broccoli Florets",
-      price: 50,
+      price: 5,
       image:
         "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?q=80&w=2802&auto=format&fit=crop",
       tag: "Fresh",
@@ -316,7 +316,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 44,
       name: "Red Bell Peppers",
-      price: 20,
+      price: 2,
       image: "/images/red_bell_peppers.png",
       tag: "Sweet",
       description:
@@ -328,7 +328,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 45,
       name: "Sweet Potatoes",
-      price: 30,
+      price: 3,
       image: "/images/sweet_potatoes.png",
       tag: "Root",
       description: "Naturally sweet and creamy tubers. Rich in fiber and complex carbohydrates.",
@@ -339,7 +339,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 46,
       name: "Cherry Tomatoes",
-      price: 40,
+      price: 4,
       image:
         "https://images.unsplash.com/photo-1561136594-7f68413baa99?q=80&w=2940&auto=format&fit=crop",
       tag: "Bite-size",
@@ -351,7 +351,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 47,
       name: "Red Onions",
-      price: 20,
+      price: 2,
       image:
         "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?q=80&w=2874&auto=format&fit=crop",
       tag: "Sharp",
@@ -366,7 +366,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 50,
       name: "Honeycrisp Apples",
-      price: 40,
+      price: 4,
       image:
         "https://images.unsplash.com/photo-1570913149827-d2ac84ab3f9a?q=80&w=2940&auto=format&fit=crop",
       tag: "Crisp",
@@ -378,7 +378,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 51,
       name: "Organic Bananas",
-      price: 20,
+      price: 2,
       image:
         "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?q=80&w=2960&auto=format&fit=crop",
       tag: "Energy",
@@ -390,7 +390,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 52,
       name: "Navel Oranges",
-      price: 50,
+      price: 5,
       image:
         "https://images.unsplash.com/photo-1547514701-42782101795e?q=80&w=2787&auto=format&fit=crop",
       tag: "Citrus",
@@ -402,7 +402,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 53,
       name: "Strawberries",
-      price: 60,
+      price: 6,
       image: "/images/strawberries.png",
       tag: "Berry",
       description: "Sweet, ruby-red strawberries. Perfect for desserts or fresh eating.",
@@ -413,7 +413,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 54,
       name: "Blueberries",
-      price: 70,
+      price: 7,
       image: "/images/blueberries.png",
       tag: "Superfood",
       description: "Plump and juicy blueberries. A top source of antioxidants.",
@@ -424,7 +424,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 55,
       name: "Red Seedless Grapes",
-      price: 60,
+      price: 6,
       image: "/images/red_grapes.png",
       tag: "Sweet",
       description: "Firm and sweet grapes without the seeds. A classic healthy snack.",
@@ -435,7 +435,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 56,
       name: "Avocados",
-      price: 30,
+      price: 3,
       image: "/images/avocados.png",
       tag: "Creamy",
       description: "Ripe, buttery Hass avocados. Essential for toast and salads.",
@@ -446,7 +446,7 @@ export const PRODUCTS: Record<Category, Product[]> = {
     {
       id: 57,
       name: "Guavas",
-      price: 20,
+      price: 2,
       image: "/images/guavas.png",
       tag: "Tropical",
       description:
