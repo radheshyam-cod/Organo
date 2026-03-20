@@ -16,7 +16,7 @@ import { useAuth } from "../features/auth/AuthContext";
 import { useOrder } from "../features/orders/OrderContext";
 import { Link } from "react-router-dom";
 import { useSubscription } from "../features/subscriptions/SubscriptionContext";
-import { formatCurrency } from "../lib/utils";
+import { formatCurrency, getImageUrl } from "../lib/utils";
 import { HealthCheckIn } from "../components/account/HealthCheckIn";
 
 export const Account = () => {
@@ -142,7 +142,7 @@ export const Account = () => {
                                   className="w-12 h-12 rounded-lg border border-gray-100 overflow-hidden flex-shrink-0 bg-gray-50"
                                 >
                                   <img
-                                    src={item.image}
+                                    src={getImageUrl(item.image)}
                                     alt={item.name}
                                     className="w-full h-full object-cover"
                                   />
@@ -183,7 +183,7 @@ export const Account = () => {
                             <div className="flex gap-4">
                               <div className="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
                                 <img
-                                  src={sub.image}
+                                  src={getImageUrl(sub.image)}
                                   alt={sub.productName}
                                   className="w-full h-full object-cover"
                                 />

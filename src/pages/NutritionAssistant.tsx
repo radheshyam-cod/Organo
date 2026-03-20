@@ -22,6 +22,7 @@ import {
 import { useCart } from "../features/cart/CartContext";
 import { useAuth } from "../features/auth/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { getImageUrl } from "../lib/utils";
 
 interface FormData extends Partial<UserHealthProfile> {
   goal?: Goal;
@@ -715,7 +716,7 @@ const PlanDisplay = ({ plan, onRestart, addToCart, onSave }: PlanDisplayProps) =
 
             <div className="h-40 bg-organo-cream overflow-hidden">
               <img
-                src={rec.juice.image}
+                src={getImageUrl(rec.juice.image)}
                 alt={rec.juice.name}
                 className="w-full h-full object-cover"
               />

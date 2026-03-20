@@ -17,7 +17,7 @@ import {
 import { generateRecommendation, generateWeeklyRecommendations } from "../ai/recommendationEngine";
 import { useCart } from "../features/cart/CartContext";
 import { useProducts } from "../hooks/useProducts";
-import { formatCurrency } from "../lib/utils";
+import { formatCurrency, getImageUrl } from "../lib/utils";
 
 export default function RealTimeRecommender() {
   const { addToCart } = useCart();
@@ -445,7 +445,7 @@ export default function RealTimeRecommender() {
                         <div className="relative">
                           <div className="w-20 h-20 bg-gradient-to-br from-organo-pistachio/20 to-organo-green/10 rounded-2xl flex items-center justify-center shadow-lg">
                             <img
-                              src={juice.image}
+                              src={getImageUrl(juice.image)}
                               alt={juice.name}
                               className="w-16 h-16 object-cover rounded-xl"
                             />
@@ -730,7 +730,7 @@ export default function RealTimeRecommender() {
                       <div className="flex items-start gap-3 mb-3">
                         <div className="relative">
                           <img
-                            src={weekJuice?.image || ""}
+                            src={weekJuice?.image ? getImageUrl(weekJuice.image) : ""}
                             alt={weekJuice?.name || ""}
                             className="w-10 h-10 object-cover rounded-lg shadow-sm"
                           />

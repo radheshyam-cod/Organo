@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { ArrowRight, Search as SearchIcon, Sparkles } from "lucide-react";
 import { FEATURED_SEARCHES, searchSite } from "../lib/search";
+import { getImageUrl } from "../lib/utils";
 
 export const SearchPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -157,7 +158,7 @@ export const SearchPage = () => {
                       {result.image ? (
                         <div className="h-28 w-24 shrink-0 overflow-hidden rounded-[22px] bg-organo-cream">
                           <img
-                            src={result.image}
+                            src={getImageUrl(result.image)}
                             alt={result.title}
                             className="h-full w-full object-cover"
                           />

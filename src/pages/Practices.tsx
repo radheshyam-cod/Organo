@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Sprout, Droplets, Bug, Sun, RefreshCw, HeartHandshake } from "lucide-react";
+import { getImageUrl } from "../lib/utils";
 
 export const Practices = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -16,7 +17,7 @@ export const Practices = () => {
       <section ref={heroRef} className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <motion.div style={{ y }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
           <img
-            src="/images/regenerative_farming.png"
+            src={getImageUrl("/images/regenerative_farming.png")}
             alt="Regenerative Farming"
             className="w-full h-full object-cover"
           />

@@ -24,7 +24,7 @@ import { useCart } from "../features/cart/CartContext";
 import { aiService } from "../services/aiService";
 import { useAuth } from "../features/auth/AuthContext";
 import { useProducts } from "../hooks/useProducts";
-import { formatCurrency } from "../lib/utils";
+import { formatCurrency, getImageUrl } from "../lib/utils";
 
 const GOALS: {
   id: Goal;
@@ -618,7 +618,7 @@ export const AIAdvisor = () => {
                     {/* Juice image */}
                     <div className="h-44 overflow-hidden bg-organo-cream relative">
                       <img
-                        src={data.product?.image || "/images/placeholder.png"}
+                        src={getImageUrl(data.product?.image || "/images/placeholder.png")}
                         alt={data.name}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />

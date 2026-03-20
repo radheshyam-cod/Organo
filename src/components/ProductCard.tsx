@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Plus, Star, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { Product } from "../hooks/useProducts";
-import { formatCurrency, getProductImage } from "../lib/utils";
+import { formatCurrency, getProductImage, getImageUrl } from "../lib/utils";
 
 type Variant = "grid" | "carousel" | "compact";
 
@@ -40,7 +40,7 @@ function ProductCardComponent({
             decoding="async"
             onError={(e) => {
               e.currentTarget.onerror = null;
-              e.currentTarget.src = "/images/placeholder.png";
+              e.currentTarget.src = getImageUrl("/images/placeholder.png");
             }}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
@@ -116,7 +116,7 @@ export function CompactProductCard({ product, onAdd }: ProductCardProps) {
         decoding="async"
         onError={(e) => {
           e.currentTarget.onerror = null;
-          e.currentTarget.src = "/images/placeholder.png";
+          e.currentTarget.src = getImageUrl("/images/placeholder.png");
         }}
         className="w-20 h-20 object-cover rounded-lg"
       />

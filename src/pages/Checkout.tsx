@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useCart } from "../features/cart/CartContext";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle, Box, Truck } from "lucide-react";
-import { cn, formatCurrency } from "../lib/utils";
+import { cn, formatCurrency, getImageUrl } from "../lib/utils";
 import { paymentService } from "../services/paymentService";
 import { useAuth } from "../features/auth/AuthContext";
 
@@ -337,7 +337,7 @@ export const Checkout = () => {
                   <div key={item.id} className="flex gap-4 items-center">
                     <div className="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
                       <img
-                        src={item.image}
+                        src={getImageUrl(item.image)}
                         alt={item.name}
                         className="w-full h-full object-cover"
                       />

@@ -5,7 +5,7 @@ import { useCart } from "../features/cart/CartContext";
 import { useWishlist } from "../features/wishlist/WishlistContext";
 import { useEffect } from "react";
 import { useProducts } from "../hooks/useProducts";
-import { formatCurrency, getProductImage } from "../lib/utils";
+import { formatCurrency, getProductImage, getImageUrl } from "../lib/utils";
 
 export const ProductDetails = () => {
   const { id } = useParams();
@@ -14,7 +14,7 @@ export const ProductDetails = () => {
   const { loading, error, getById } = useProducts();
 
   const product = id ? getById(id) : undefined;
-  const imageSrc = product ? getProductImage(product) : "/images/placeholder.png";
+  const imageSrc = product ? getProductImage(product) : getImageUrl("/images/placeholder.png");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -65,7 +65,7 @@ export const ProductDetails = () => {
                 className="w-full h-full object-cover"
                 onError={(e) => {
                   e.currentTarget.onerror = null;
-                  e.currentTarget.src = "/images/placeholder.png";
+                  e.currentTarget.src = getImageUrl("/images/placeholder.png");
                 }}
               />
               <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-sm font-bold text-organo-green uppercase tracking-wider shadow-sm">

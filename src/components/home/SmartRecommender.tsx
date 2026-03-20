@@ -15,7 +15,7 @@ import { getQuickRecommendation } from "../../ai/juiceAdvisor";
 import { useCart } from "../../features/cart/CartContext";
 import { Link } from "react-router-dom";
 import type { Product } from "../../data/products";
-import { formatCurrency } from "../../lib/utils";
+import { formatCurrency, getImageUrl } from "../../lib/utils";
 
 type Need = "energy" | "recover" | "cleanse";
 
@@ -220,7 +220,7 @@ export const SmartRecommender = () => {
                   >
                     <div className="h-48 sm:h-56 overflow-hidden relative">
                       <img
-                        src={juice.image}
+                        src={getImageUrl(juice.image)}
                         alt={juice.name}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />

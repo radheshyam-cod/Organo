@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { Link } from "react-router-dom";
+import { getImageUrl } from "../../lib/utils";
 
 export const Hero = () => {
   return (
@@ -12,7 +13,10 @@ export const Hero = () => {
       </div>
 
       {/* Right Side - The Juice */}
-      <div className="relative w-full md:w-1/2 h-1/2 md:h-full bg-[url('/images/organo_delivery.png')] bg-cover bg-center">
+      <div 
+        className="relative w-full md:w-1/2 h-1/2 md:h-full bg-cover bg-center"
+        style={{ backgroundImage: `url(${getImageUrl("/images/organo_delivery.png")})` }}
+      >
         <div className="absolute inset-0 bg-black/10" />
       </div>
 

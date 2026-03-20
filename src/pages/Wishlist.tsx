@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Heart, ShoppingBag, Trash2 } from "lucide-react";
 import { useWishlist } from "../features/wishlist/WishlistContext";
 import { useCart } from "../features/cart/CartContext";
-import { formatCurrency, getProductImage } from "../lib/utils";
+import { formatCurrency, getProductImage, getImageUrl } from "../lib/utils";
 
 export const Wishlist = () => {
   const { items, removeFromWishlist } = useWishlist();
@@ -47,7 +47,7 @@ export const Wishlist = () => {
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = "/images/placeholder.png";
+                      e.currentTarget.src = getImageUrl("/images/placeholder.png");
                     }}
                   />
                   <button

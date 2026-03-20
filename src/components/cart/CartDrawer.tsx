@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Trash2, ShoppingBag, ArrowRight, Minus, Plus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../features/cart/CartContext";
-import { formatCurrency, cn } from "../../lib/utils";
+import { formatCurrency, cn, getImageUrl } from "../../lib/utils";
 
 const FREE_SHIPPING_THRESHOLD = 1500;
 
@@ -91,7 +91,7 @@ const CartDrawerComponent = () => {
                   <div key={item.id} className="flex gap-4">
                     <div className="w-24 h-24 bg-gray-50 rounded-xl overflow-hidden flex-shrink-0">
                       <img
-                        src={item.image}
+                        src={getImageUrl(item.image)}
                         alt={item.name}
                         loading="lazy"
                         decoding="async"
@@ -147,7 +147,7 @@ const CartDrawerComponent = () => {
             {items.length > 0 && !isGingerShotInCart && (
               <div className="p-4 mx-6 mb-4 bg-[rgba(249,249,245,1)] border border-organo-pistachio/40 rounded-xl flex items-center gap-4 shadow-sm">
                 <div className="w-16 h-16 bg-white rounded-lg overflow-hidden flex-shrink-0 border border-black/5">
-                  <img src="/images/ginger_shot.png" alt="Ginger Shot" className="w-full h-full object-cover mix-blend-multiply" />
+                  <img src={getImageUrl("/images/ginger_shot.png")} alt="Ginger Shot" className="w-full h-full object-cover mix-blend-multiply" />
                 </div>
                 <div className="flex-1">
                   <h4 className="font-serif text-sm font-bold text-organo-green">Add a Ginger Shot?</h4>

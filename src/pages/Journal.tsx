@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Clock, User } from "lucide-react";
 // removed Link import
+import { getImageUrl } from "../lib/utils";
 
 const POSTS = [
   {
@@ -101,7 +102,7 @@ export const Journal = () => {
             >
               <div className="aspect-[4/3] overflow-hidden relative">
                 <img 
-                  src={post.image} 
+                  src={getImageUrl(post.image)} 
                   alt={post.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
