@@ -1,0 +1,1 @@
+import{j as r}from"./index-BKqFF9MI.js";import{SubscriptionBuilder as i}from"./SubscriptionBuilder-IJKTqbYb.js";import"./box-CV-_diaZ.js";const e=()=>r.jsx("div",{className:"pt-20 bg-organo-cream min-h-screen",children:r.jsx(i,{})});export{e as Subscription};
