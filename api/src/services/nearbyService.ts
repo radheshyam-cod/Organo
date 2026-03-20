@@ -83,14 +83,16 @@ export async function findNearby(
     throw error;
   }
 
-  const results = (payload.results ?? [])
-    .map((p: any) => ({
-      name: p.name,
+  type PlaceResult = { name: string; distance: number; rating: number | null; address: string };
+
+  const results: PlaceResult[] = (payload.results as any[] | undefined ?? [])
+    .map((p) => ({
+      name: p.name as string,
       distance: haversine(lat, lng, p.geometry.location.lat, p.geometry.location.lng), // meters
-      rating: p.rating ?? null,
-      address: p.vicinity ?? p.formatted_address ?? "",
+      rating: (p.rating as number | undefined) ?? null,
+      address: (p.vicinity as string | undefined) ?? (p.formatted_address as string | undefined) ?? "",
     }))
-    .filter((p: any) => (p.rating ?? 0) >= minRating);
+    .filter((p) => (p.rating ?? 0) >= minRating);
 
   const response = { results, source: "google-places", cached: false };
   cache.set(key, { timestamp: Date.now(), data: response });
